@@ -21,6 +21,9 @@ import org.slf4j.LoggerFactory;
  * @author kristian
  */
 public class Inicio {
+    /**
+     * Contiene las propiedades establecidas
+     */
     private final static Propiedades PROPIEDADES = new Propiedades();
     private static LookAndFeel laf;
     private static final Logger LOG = LoggerFactory.getLogger(Inicio.class);
@@ -37,6 +40,7 @@ public class Inicio {
             case LAF_JTATOO:
                 laf = new AeroLookAndFeel();
                 LOG.debug("LAF: AeroLookAndFeel");
+
             case LAF_SYSTEM:
             default:
                 if (nombreSO().equalsIgnoreCase("Linux")) {
