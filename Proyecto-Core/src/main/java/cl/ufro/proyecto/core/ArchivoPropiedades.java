@@ -26,7 +26,7 @@ public abstract class ArchivoPropiedades {
     
     protected enum lafValoresSoportados {
         SYSTEM("sistema"),
-        JTATTOO("jtatto");
+        JTATTOO("jtattoo");
         
         private String value;
         private lafValoresSoportados(String value){
