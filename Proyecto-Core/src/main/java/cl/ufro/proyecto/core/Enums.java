@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package cl.ufro.proyecto.core;
 
 /**
@@ -11,9 +8,19 @@ package cl.ufro.proyecto.core;
 public class Enums {
 
     public enum LAF {
-
-        LAF_DEFAULT,
-        LAF_SYSTEM,
-        LAF_JTATOO
-    };
+        DEFAULT(""),
+        SYSTEM(null),
+        SYSTEM_LINUX("com.sun.java.swing.plaf.gtk.GTKLookAndFeel"),
+        SYSTEM_WINDOWS("com.sun.java.swing.plaf.windows.WindowsLookAndFeel"),
+        JTATOO("com.jtattoo.plaf.aero.AeroLookAndFeel");
+        
+        private String value;
+        
+        private LAF (String value){
+        this.value = value;
+        }
+        public String getValue(){
+            return value;
+        }
+    }
 }

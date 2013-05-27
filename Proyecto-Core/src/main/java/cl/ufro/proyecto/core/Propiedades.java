@@ -36,6 +36,6 @@ public class Propiedades extends ArchivoPropiedades {
     public LAF getLookAndFeel() {
         String property = prop.getProperty(KEY_LAF);
 //TODO: switch
-        return LAF.LAF_JTATOO;
+        return LAF.JTATOO;
     }
 }
