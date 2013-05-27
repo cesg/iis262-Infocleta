@@ -22,7 +22,6 @@ public class Inicio {
      * Contiene las propiedades establecidas
      */
     private final static Propiedades PROPIEDADES = new Propiedades();
-    private static LookAndFeel laf;
     private static final Logger LOG = LoggerFactory.getLogger(Inicio.class);
 
     public static void main(String arg[]) {
