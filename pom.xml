@@ -25,5 +25,6 @@
   <modules>
     <module>Proyecto-Core</module>
     <module>Proyecto-GUI</module>
+    <module>Proyecto-Beans</module>
   </modules>
 </project>
