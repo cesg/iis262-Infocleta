@@ -7,7 +7,6 @@ package cl.ufro.proyecto.core;
 import cl.ufro.proyecto.core.Enums.LAF;
 import cl.ufro.proyecto.gui.ControladorGUI;
 import cl.ufro.proyecto.gui.frames.Principal;
-import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import org.slf4j.Logger;
