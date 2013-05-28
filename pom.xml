@@ -27,4 +27,7 @@
     <module>Proyecto-GUI</module>
     <module>Proyecto-Beans</module>
   </modules>
+  <properties>
+  	<jse.version>1.7</jse.version>
+  </properties>
 </project>
