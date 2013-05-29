@@ -20,6 +20,8 @@ public class ListaAlumnosImp implements ListaAlumnos {
     }
 
     public void insertar(Alumno a) {
+        // FIXME: si los alumnos estubieran oredenado se pueden utilizar
+        // busquedas avanzadas.
         if (esNulo(a) || items >= alumnos.length)
             return;
 
@@ -39,6 +41,8 @@ public class ListaAlumnosImp implements ListaAlumnos {
     }
 
     public Alumno obtener(String matricula) {
+        // FIXME: una busqueda binaria seria mejor, pero seria necesario que
+        // este ordenado.
         for (Alumno item : alumnos) {
             if (matricula.equals(item.getMatricula())) {
                 return item;
