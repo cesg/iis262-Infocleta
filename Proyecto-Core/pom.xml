@@ -14,7 +14,7 @@
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <install.dir>${project.basedir}/build/${project.version}</install.dir>
+    <install.dir>${project.parent.basedir}/build/${project.version}</install.dir>
   </properties>
   
   <profiles>
@@ -86,7 +86,16 @@
     <build>
         <finalName>Bicicletario</finalName>
         <plugins>
-
+			<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.0</version>
+        <configuration>
+          <!-- http://maven.apache.org/plugins/maven-compiler-plugin/ -->
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
             <!-- maven-jar-plugin -->
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -120,6 +129,11 @@
         <groupId>com.jtattoo</groupId>
         <artifactId>JTattoo</artifactId>
         <version>1.6.8</version>
+    </dependency>
+    <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>Proyecto-Beans</artifactId>
+        <version>${project.version}</version>
     </dependency>
   </dependencies>
 </project>

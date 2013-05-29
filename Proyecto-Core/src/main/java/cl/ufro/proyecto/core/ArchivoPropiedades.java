@@ -23,4 +23,18 @@ public abstract class ArchivoPropiedades {
         this.NOMBRE = "Proyecto.conf";
         direccion = getClass().getClassLoader().getResource(NOMBRE);
     }
+    
+    protected enum lafValoresSoportados {
+        SYSTEM("sistema"),
+        JTATTOO("jtattoo");
+        
+        private String value;
+        private lafValoresSoportados(String value){
+            this.value = value;
+        }
+        
+        public String getValue (){
+        return value;
+        }
+    }
 }

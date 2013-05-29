@@ -7,10 +7,6 @@ package cl.ufro.proyecto.core;
 import cl.ufro.proyecto.core.Enums.LAF;
 import cl.ufro.proyecto.gui.ControladorGUI;
 import cl.ufro.proyecto.gui.frames.Principal;
-import com.jtattoo.plaf.aero.AeroLookAndFeel;
-import com.sun.java.swing.plaf.gtk.GTKLookAndFeel;
-import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
-import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import org.slf4j.Logger;
@@ -25,7 +21,6 @@ public class Inicio {
      * Contiene las propiedades establecidas
      */
     private final static Propiedades PROPIEDADES = new Propiedades();
-    private static LookAndFeel laf;
     private static final Logger LOG = LoggerFactory.getLogger(Inicio.class);
 
     public static void main(String arg[]) {
@@ -37,26 +32,34 @@ public class Inicio {
     private static void estiloVisual() {
         LAF lookAndFeel = PROPIEDADES.getLookAndFeel();
         switch (lookAndFeel) {
-            case LAF_JTATOO:
-                laf = new AeroLookAndFeel();
-                LOG.debug("LAF: AeroLookAndFeel");
-
-            case LAF_SYSTEM:
+            case JTATOO:
+                setLookAndFeel(LAF.JTATOO.getValue());
+                break;
+            case SYSTEM:
             default:
                 if (nombreSO().equalsIgnoreCase("Linux")) {
-                    laf = new GTKLookAndFeel();
+                    setLookAndFeel(LAF.SYSTEM_LINUX.getValue());
                 } else {
-                    laf = new WindowsLookAndFeel();
+                    setLookAndFeel(LAF.SYSTEM_WINDOWS.getValue());
                 }
         }
-
+    }
+    
+    private static void setLookAndFeel(String laf){
         try {
             UIManager.setLookAndFeel(laf);
+            LOG.debug("LookAndFeel : {}",laf);
+        } catch (ClassNotFoundException ex) {
+            LOG.error(laf, ex);
+        } catch (InstantiationException ex) {
+            LOG.error(laf, ex);
+        } catch (IllegalAccessException ex) {
+            LOG.error(laf, ex);
         } catch (UnsupportedLookAndFeelException ex) {
-            LOG.error("Error al establecer LAF.", ex);
+            LOG.error(laf, ex);
         }
     }
-
+    
     public static String nombreSO() {
         return System.getProperty("os.name");
     }
