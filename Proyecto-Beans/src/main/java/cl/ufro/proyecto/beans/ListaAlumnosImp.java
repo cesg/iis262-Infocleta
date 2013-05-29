@@ -4,14 +4,25 @@
 package cl.ufro.proyecto.beans;
 
 /**
+ * <p>Implementación de ListaAlumnos.</p>
  * @author kristian
- *
+ * @see cl.ufro.proyecto.beans.ListaAlumnos
  */
 public class ListaAlumnosImp implements ListaAlumnos {
-
+    private Alumno[] alumnos;
+    private int items;
+    
+    public ListaAlumnosImp(int largo) {
+	this.alumnos = new Alumno[largo];
+	items = 0;
+    }
 
     public void insertar(Alumno a) {
-	// TODO Auto-generated method stub
+	if(a == null || items >= alumnos.length)
+	    return;
+	
+	this.alumnos[items] = a;
+	items++;
 
     }
 
@@ -47,13 +58,11 @@ public class ListaAlumnosImp implements ListaAlumnos {
 
 
     public boolean estaVacia() {
-	// TODO Auto-generated method stub
-	return false;
+	return items == 0;
     }
 
     public int largo() {
-	// TODO Auto-generated method stub
-	return 0;
+	return items;
     }
 
 
