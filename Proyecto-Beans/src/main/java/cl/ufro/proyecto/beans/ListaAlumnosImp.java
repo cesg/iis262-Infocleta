@@ -25,7 +25,6 @@ public class ListaAlumnosImp implements ListaAlumnos {
 
         this.alumnos[items] = a;
         items++;
-
     }
 
     public boolean eliminar(Alumno a) {
@@ -89,7 +88,5 @@ public class ListaAlumnosImp implements ListaAlumnos {
 
     public void ordenarPorApellidoPaterno() {
         // TODO Auto-generated method stub
-
     }
-
 }
