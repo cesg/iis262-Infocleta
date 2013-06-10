@@ -1,26 +1,29 @@
-
 package cl.ufro.proyecto.core;
 
-/**
- *
- * @author kristian
- */
-public class Enums {
+enum Laf {
+    DEFAULT("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"), SYSTEM(null), SYSTEM_LINUX(
+            "com.sun.java.swing.plaf.gtk.GTKLookAndFeel"), SYSTEM_WINDOWS(
+            "com.sun.java.swing.plaf.windows.WindowsLookAndFeel"), JTATOO(
+            "com.jtattoo.plaf.acryl.AcrylLookAndFeel");
 
-    public enum LAF {
-        DEFAULT(""),
-        SYSTEM(null),
-        SYSTEM_LINUX("com.sun.java.swing.plaf.gtk.GTKLookAndFeel"),
-        SYSTEM_WINDOWS("com.sun.java.swing.plaf.windows.WindowsLookAndFeel"),
-        JTATOO("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
-        
-        private String value;
-        
-        private LAF (String value){
+    private String value;
+
+    private Laf(String value) {
         this.value = value;
-        }
-        public String getValue(){
-            return value;
-        }
     }
-}
+    
+    public String toString(){
+        return value;
+    }
+};
+
+enum Llaves {
+    LAF("aplicacion.laf");
+    private String value;
+    private Llaves(String value){
+        this.value = value;
+    }
+    public String toString(){
+        return value;
+    }
+};

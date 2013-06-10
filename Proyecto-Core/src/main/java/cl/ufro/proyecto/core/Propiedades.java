@@ -4,43 +4,49 @@
  */
 package cl.ufro.proyecto.core;
 
-import cl.ufro.proyecto.core.Enums.LAF;
-import java.io.IOException;
-import java.util.Properties;
+import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration.PropertiesConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- *
+ * <p></p>
  * @author kristian
  */
-public class Propiedades extends ArchivoPropiedades {
+public class Propiedades {
 
-    private Properties prop;
-//    private URL fileProp;
+    private static final String NOMBRE_ARCHIVO = "Aplicacion.conf";
     private Logger LOG = LoggerFactory.getLogger(Propiedades.class);
+    private PropertiesConfiguration properties;
 
     public Propiedades() {
-        this.prop = new Properties();
-//        fileProp = getClass().getClassLoader().getResource(NOMBRE);
         try {
-            if (direccion != null) {
-                this.prop.load(direccion.openStream());
-            }
-        } catch (IOException ex) {
-            LOG.error("Imposible leer el archivo de opciones.", ex);
+            properties = new PropertiesConfiguration(NOMBRE_ARCHIVO);
+            properties.load();
+        } catch (ConfigurationException e) {
+            LOG.error("## Configuracion", e);
         }
     }
 
-    public LAF getLookAndFeel() {
-        String property = prop.getProperty(KEY_LAF);
-        LAF laf = LAF.SYSTEM;
+    /**
+     * <p>
+     * Obtiene el <code>LookAndFeel</code> establecido en las propiedades.
+     * </p>
+     * <b>LAF getLookAndFeel()</b>
+     * 
+     * @return
+     */
+    public Laf getLookAndFeel() {
+        Laf laf = Laf.SYSTEM;
+        if (properties == null)
+            return laf;
+
+        String property = properties.getString(Llaves.LAF.toString());
+
         if (property == null) {
             return laf;
         }
-        if (property.equalsIgnoreCase(lafValoresSoportados.JTATTOO.getValue())) {
-            laf = LAF.JTATOO;
-        }
+        laf = Ayudante.stringToLaf(property);
         return laf;
     }
 }
