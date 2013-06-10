@@ -4,20 +4,20 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class TestListaAlumnosImp {
+public class TestListaAlumnosArray {
 
     private ListaAlumnos lista;
     int largo = 10;
     
     @Test
     public void testListaAlumnosImp() {
-	lista = new ListaAlumnosImp(largo);
+	lista = new ListaAlumnosArray(largo);
     }
 
     @Test
     public void testInsertar() {
 	Alumno a = new Alumno("Juan", "1234567813", "Peres","Foo");
-	lista = new ListaAlumnosImp(largo);
+	lista = new ListaAlumnosArray(largo);
 	lista.insertar(a);
 	assertFalse(lista.estaVacia());
     }

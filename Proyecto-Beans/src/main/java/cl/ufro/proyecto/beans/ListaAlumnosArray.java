@@ -10,11 +10,11 @@ import static cl.ufro.proyecto.beans.util.Utilidades.esNulo;
  * @author kristian
  * @see cl.ufro.proyecto.beans.ListaAlumnos
  */
-public class ListaAlumnosImp implements ListaAlumnos {
+public class ListaAlumnosArray implements ListaAlumnos {
     private Alumno[] alumnos;
     private int items;
 
-    public ListaAlumnosImp(int largo) {
+    public ListaAlumnosArray(int largo) {
         this.alumnos = new Alumno[largo];
         items = 0;
     }
