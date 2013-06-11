@@ -3,7 +3,7 @@ package cl.ufro.proyecto.beans;
 /**
  * Lista de alumnos.
  * 
- * @author kristian
+ * @author c3sg
  * 
  */
 public interface ListaAlumnos {
