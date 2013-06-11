@@ -4,6 +4,7 @@
  */
 package cl.ufro.proyecto.core;
 
+import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.slf4j.Logger;
@@ -15,14 +16,13 @@ import org.slf4j.LoggerFactory;
  */
 public class Propiedades {
 
-    private static final String NOMBRE_ARCHIVO = "Aplicacion.conf";
+    private static final String NOMBRE_ARCHIVO = "rc.conf";
     private Logger LOG = LoggerFactory.getLogger(Propiedades.class);
-    private PropertiesConfiguration properties;
+    private Configuration properties;
 
     public Propiedades() {
         try {
             properties = new PropertiesConfiguration(NOMBRE_ARCHIVO);
-            properties.load();
         } catch (ConfigurationException e) {
             LOG.error("## Configuracion", e);
         }

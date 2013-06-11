@@ -3,6 +3,7 @@ package cl.ufro.proyecto.core;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import org.apache.commons.lang.SystemUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -51,9 +52,9 @@ public class Ayudante {
             laf = Laf.JTATOO;
             break;
         case "sistema":
-            if (SISTEMA_OP.equalsIgnoreCase("linux"))
+            if (SystemUtils.IS_OS_LINUX)
                 laf = Laf.SYSTEM_LINUX;
-            else if (SISTEMA_OP.equalsIgnoreCase("windows"))
+            else if (SystemUtils.IS_OS_WINDOWS)
                 laf = Laf.SYSTEM_WINDOWS;
             break;
         default:
