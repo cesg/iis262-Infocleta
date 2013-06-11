@@ -65,7 +65,7 @@
                                         <resource>
                                             <directory>${project.basedir}/src/main/resources</directory>
                                             <includes>
-                                                <include>Proyecto.conf</include>
+                                                <include>rc.conf</include>
                                                 <include>run.bat</include>
                                                 <include>run</include>
                                             </includes>
@@ -105,7 +105,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>cl.ufro.proyecto.core.Inicio</mainClass>
+                            <mainClass>cl.ufro.proyecto.core.Aplicacion</mainClass>
                         </manifest>
                     </archive>
 
