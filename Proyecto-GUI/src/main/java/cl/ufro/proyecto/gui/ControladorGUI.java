@@ -4,6 +4,9 @@
  */
 package cl.ufro.proyecto.gui;
 
+import cl.ufro.proyecto.beans.Alumno;
+import cl.ufro.proyecto.beans.ListaAlumnos;
+
 /**
  * Es la comunicación con la GUI Se debe ir agregabdo cada método necesario en
  * la GUI
@@ -11,5 +14,10 @@ package cl.ufro.proyecto.gui;
  * @author cesg
  */
 public interface ControladorGUI {
-    
+
+    void agregarAlumno(Alumno a);
+
+    Alumno buscarAlumno(Alumno a);
+
+    ListaAlumnos todosAlumnos();
 }
