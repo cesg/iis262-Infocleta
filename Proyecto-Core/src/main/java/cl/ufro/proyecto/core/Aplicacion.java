@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cl.ufro.proyecto.gui.ControladorGUI;
-import cl.ufro.proyecto.gui.frames.Principal;
+import cl.ufro.proyecto.gui.frames.MainFrame;
 
 /**
  *
@@ -21,6 +21,6 @@ public class Aplicacion {
         LOG.debug("## Iniciando la aplicacion.");
         final ControladorGUI controladorGUI = new SimpleControladorGUI();
         Ayudante.iniciaEstiloVisual();
-        Principal.iniciaNueva(controladorGUI);
+       MainFrame.main(controladorGUI);
     } 
 }
