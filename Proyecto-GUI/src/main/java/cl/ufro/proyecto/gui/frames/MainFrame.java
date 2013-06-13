@@ -2,11 +2,13 @@ package cl.ufro.proyecto.gui.frames;
 
 import java.awt.EventQueue;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
+import javax.swing.ListModel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +26,7 @@ public class MainFrame {
     private JLabel lblListaAlumnos;
     private JButton btnActualizar;
     private JList<Alumno> list;
+    private DefaultListModel<Alumno> listModel;
     private static ControladorGUI controlador;
     private static final Logger LOGGER = LoggerFactory
             .getLogger(MainFrame.class);
@@ -88,6 +91,12 @@ public class MainFrame {
         btnActualizar = new JButton("Actualizar");
         btnActualizar.setBounds(244, 289, 98, 24);
         frame.getContentPane().add(btnActualizar);
+
+        // FIXME:
+        Alumno a = new Alumno("Dummy", "1234567", "PDummy", "MDummy");
+        listModel = new DefaultListModel<>();
+        listModel.addElement(a);
+        this.list.setModel(listModel);
     }
 
     protected void btnAgregarActionPerformed(ActionEvent e) {
