@@ -13,6 +13,8 @@ import org.slf4j.LoggerFactory;
 
 import cl.ufro.proyecto.beans.Alumno;
 import cl.ufro.proyecto.gui.ControladorGUI;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainFrame {
 
@@ -67,6 +69,11 @@ public class MainFrame {
         scrollPane.setViewportView(list);
 
         btnAgregar = new JButton("Agregar");
+        btnAgregar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                btnAgregarActionPerformed(e);
+            }
+        });
         btnAgregar.setBounds(244, 359, 98, 24);
         frame.getContentPane().add(btnAgregar);
 
@@ -81,5 +88,9 @@ public class MainFrame {
         btnActualizar = new JButton("Actualizar");
         btnActualizar.setBounds(244, 289, 98, 24);
         frame.getContentPane().add(btnActualizar);
+    }
+
+    protected void btnAgregarActionPerformed(ActionEvent e) {
+        AgregarFrame.main(controlador);
     }
 }

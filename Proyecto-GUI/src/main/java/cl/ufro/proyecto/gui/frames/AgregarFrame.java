@@ -7,9 +7,13 @@ import javax.swing.JFrame;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import cl.ufro.proyecto.beans.Alumno;
 import cl.ufro.proyecto.gui.ControladorGUI;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AgregarFrame {
 
@@ -19,6 +23,7 @@ public class AgregarFrame {
             .getLogger(AgregarFrame.class);
     private JTextField txtFMatricula;
     private JTextField txtFNombre;
+    private JButton btnAgregar;
 
     /**
      * Launch the application.
@@ -70,5 +75,19 @@ public class AgregarFrame {
         txtFNombre.setBounds(173, 109, 200, 22);
         frame.getContentPane().add(txtFNombre);
         txtFNombre.setColumns(10);
+        /* btnAgregar */
+        btnAgregar = new JButton("Agregar");
+        btnAgregar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                btnAgregarActionPerformed(arg0);
+            }
+        });
+        btnAgregar.setBounds(173, 172, 98, 24);
+        frame.getContentPane().add(btnAgregar);
+    }
+
+    protected void btnAgregarActionPerformed(ActionEvent arg0) {
+        Alumno a = null;
+        controlador.agregarAlumno(a);
     }
 }
