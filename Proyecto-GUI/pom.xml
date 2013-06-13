@@ -15,6 +15,21 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+  
+  <build>
+  <plugins>
+  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.0</version>
+        <configuration>
+          <!-- http://maven.apache.org/plugins/maven-compiler-plugin/ -->
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+  </plugins>
+  </build>
   <dependencies>
     <dependency>
       <groupId>org.testng</groupId>
@@ -26,6 +41,11 @@
         <groupId>${project.groupId}</groupId>
         <artifactId>Proyecto-Beans</artifactId>
         <version>${project.version}</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-api</artifactId>
+    	<version>1.7.5</version>
     </dependency>
   </dependencies>
 </project>
