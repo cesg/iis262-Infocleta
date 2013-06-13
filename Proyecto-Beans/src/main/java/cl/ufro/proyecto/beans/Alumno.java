@@ -80,5 +80,7 @@ public class Alumno {
 	return true;
     }
     
-    
+    public String toString(){
+        return this.nombre;
+    }
 }
