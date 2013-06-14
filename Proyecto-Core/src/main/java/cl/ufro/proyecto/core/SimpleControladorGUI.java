@@ -7,7 +7,7 @@ import cl.ufro.proyecto.gui.ControladorGUI;
 
 /**
  *
- * @author kristian
+ * @author c3sg
  */
 public class SimpleControladorGUI implements ControladorGUI{
     private ListaAlumnos lista;
