@@ -6,7 +6,7 @@ package cl.ufro.proyecto.beans;
  * @author c3sg
  * 
  */
-public interface ListaAlumnos {
+public interface ListaAlumnos extends Iterable<Alumno> {
     /**
      * <p>
      * Inserta un alumno a la lista.
