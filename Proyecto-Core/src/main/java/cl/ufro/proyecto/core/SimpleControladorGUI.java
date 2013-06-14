@@ -2,7 +2,6 @@ package cl.ufro.proyecto.core;
 
 import cl.ufro.proyecto.beans.Alumno;
 import cl.ufro.proyecto.beans.ListaAlumnos;
-import cl.ufro.proyecto.beans.ListaAlumnosArray;
 import cl.ufro.proyecto.gui.ControladorGUI;
 
 /**
@@ -14,7 +13,7 @@ public class SimpleControladorGUI implements ControladorGUI{
     
     public SimpleControladorGUI(int largo){
 	
-	lista = new ListaAlumnosArray(largo);
+//	lista = new ListaAlumnosArray(largo);
     }
     
     @Override

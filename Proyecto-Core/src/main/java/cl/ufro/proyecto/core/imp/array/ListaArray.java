@@ -1,5 +1,7 @@
 package cl.ufro.proyecto.core.imp.array;
 
+import java.util.Iterator;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -73,5 +75,11 @@ public class ListaArray implements ListaAlumnos {
     public int largo() {
         // TODO Auto-generated method stub
         return 0;
+    }
+
+    @Override
+    public Iterator<Alumno> iterator() {
+        // TODO Auto-generated method stub
+        return null;
     }
 }
