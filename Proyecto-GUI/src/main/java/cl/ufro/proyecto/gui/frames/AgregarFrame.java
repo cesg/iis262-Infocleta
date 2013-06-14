@@ -24,6 +24,8 @@ public class AgregarFrame {
     private JTextField txtFMatricula;
     private JTextField txtFNombre;
     private JButton btnAgregar;
+    private JLabel lblApellido;
+    private JTextField textField;
 
     /**
      * Launch the application.
@@ -35,7 +37,7 @@ public class AgregarFrame {
                     AgregarFrame window = new AgregarFrame();
                     window.frame.setVisible(true);
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    LOGGER.error("## Error al iniciar el frame", e);
                 }
             }
         });
@@ -55,7 +57,7 @@ public class AgregarFrame {
     private void initialize() {
         frame = new JFrame();
         frame.setBounds(100, 100, 450, 300);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
 
         JLabel lblMatricula = new JLabel("MATRICULA");
@@ -82,12 +84,22 @@ public class AgregarFrame {
                 btnAgregarActionPerformed(arg0);
             }
         });
-        btnAgregar.setBounds(173, 172, 98, 24);
+        btnAgregar.setBounds(173, 214, 98, 24);
         frame.getContentPane().add(btnAgregar);
+        /* ${component_name} */
+        lblApellido = new JLabel("APELLIDO");
+        lblApellido.setBounds(63, 152, 92, 18);
+        frame.getContentPane().add(lblApellido);
+        /* ${component_name} */
+        textField = new JTextField();
+        textField.setBounds(173, 150, 200, 22);
+        frame.getContentPane().add(textField);
+        textField.setColumns(10);
     }
 
     protected void btnAgregarActionPerformed(ActionEvent arg0) {
-        Alumno a = null;
+        Alumno a = new Alumno(txtFNombre.getText(), txtFMatricula.getText(),
+                null, null);
         controlador.agregarAlumno(a);
     }
 }
