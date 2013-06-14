@@ -74,22 +74,4 @@ public class ListaArray implements ListaAlumnos {
         // TODO Auto-generated method stub
         return 0;
     }
-
-    @Override
-    public void ordenarPorNombre() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void ordenarPorApellidoMaterno() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void ordenarPorApellidoPaterno() {
-        // TODO Auto-generated method stub
-
-    }
 }

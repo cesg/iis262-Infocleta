@@ -1,15 +1,15 @@
 package cl.ufro.proyecto.core.imp.linked;
 
-public class Nodo {
-    private int value;
-    protected Nodo prev;
-    protected Nodo next;
+public class Nodo<T> {
+    private T value;
+    protected Nodo<T> prev;
+    protected Nodo<T> next;
     
-    public Nodo (int value){
+    public Nodo (T value){
 	this.value = value;
     }
     
-    public int getValue(){
+    public T getValue(){
 	return value;
     }
     
@@ -20,28 +20,28 @@ public class Nodo {
     /**
      * @return the prev
      */
-    public final Nodo getPrev() {
+    public  Nodo<T> getPrev() {
         return prev;
     }
 
     /**
      * @param prev the prev to set
      */
-    public final void setPrev(Nodo prev) {
+    public final void setPrev(Nodo<T> prev) {
         this.prev = prev;
     }
 
     /**
      * @return the next
      */
-    public final Nodo getNext() {
+    public final Nodo<T> getNext() {
         return next;
     }
 
     /**
      * @param next the next to set
      */
-    public final void setNext(Nodo next) {
+    public final void setNext(Nodo<T> next) {
         this.next = next;
     }
     
