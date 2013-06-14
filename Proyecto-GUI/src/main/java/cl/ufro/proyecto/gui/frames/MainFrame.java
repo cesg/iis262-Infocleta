@@ -8,8 +8,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
-import javax.swing.ListModel;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,6 +28,7 @@ public class MainFrame {
     private static ControladorGUI controlador;
     private static final Logger LOGGER = LoggerFactory
             .getLogger(MainFrame.class);
+    private JButton btnDetalle;
 
     /**
      * Launch the application.
@@ -94,12 +93,27 @@ public class MainFrame {
 
         // FIXME:
         Alumno a = new Alumno("Dummy", "1234567", "PDummy", "MDummy");
+        Alumno a2 = new Alumno("Dummy2", "1234568", "PDummy2", "MDummy2");
         listModel = new DefaultListModel<>();
         listModel.addElement(a);
+        listModel.addElement(a2);
         this.list.setModel(listModel);
+        /* btnDetalle */
+        btnDetalle = new JButton("Detalle");
+        btnDetalle.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                btnDetalleActionPerformed(arg0);
+            }
+        });
+        btnDetalle.setBounds(244, 259, 98, 24);
+        frame.getContentPane().add(btnDetalle);
     }
 
     protected void btnAgregarActionPerformed(ActionEvent e) {
         AgregarFrame.main(controlador);
+    }
+
+    protected void btnDetalleActionPerformed(ActionEvent arg0) {
+        AlumnoInfFrame.main(list.getSelectedValue());
     }
 }
