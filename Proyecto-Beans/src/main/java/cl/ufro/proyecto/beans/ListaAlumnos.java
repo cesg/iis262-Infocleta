@@ -90,27 +90,27 @@ public interface ListaAlumnos {
      */
     int largo();
 
-    /**
-     * <p>
-     * Ordena los alumnos segun su nombre.
-     * </p>
-     * void ordenarPorNombre()
-     */
-    void ordenarPorNombre();
-
-    /**
-     * <p>
-     * Ordena los alumno segun su Apellido materno.
-     * </p>
-     * void ordenarPorApellidoMaterno()
-     */
-    void ordenarPorApellidoMaterno();
-
-    /**
-     * <p>
-     * Ordena los alumno segun su Apellido paterno.
-     * </p>
-     * void ordenarPorApellidoPaterno()
-     */
-    void ordenarPorApellidoPaterno();
+//    /**
+//     * <p>
+//     * Ordena los alumnos segun su nombre.
+//     * </p>
+//     * void ordenarPorNombre()
+//     */
+//    void ordenarPorNombre();
+//
+//    /**
+//     * <p>
+//     * Ordena los alumno segun su Apellido materno.
+//     * </p>
+//     * void ordenarPorApellidoMaterno()
+//     */
+//    void ordenarPorApellidoMaterno();
+//
+//    /**
+//     * <p>
+//     * Ordena los alumno segun su Apellido paterno.
+//     * </p>
+//     * void ordenarPorApellidoPaterno()
+//     */
+//    void ordenarPorApellidoPaterno();
 }
