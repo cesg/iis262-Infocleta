@@ -1,0 +1,17 @@
+package cl.ufro.proyecto.beans;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class TestAlumno {
+
+    @Test
+    public void testComparar() {
+	Alumno a = new Alumno("Dummy", "123456-k");
+	Alumno a2 = new Alumno("Dummy2", "123459-9");
+	
+	System.out.println(a.compareTo(a2));
+    }
+
+}
