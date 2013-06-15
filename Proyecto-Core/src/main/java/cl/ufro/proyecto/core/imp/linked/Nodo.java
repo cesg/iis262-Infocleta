@@ -1,6 +1,6 @@
 package cl.ufro.proyecto.core.imp.linked;
 
-public class Nodo<T> {
+public class Nodo<T extends Comparable<T>> {
     private T value;
     protected Nodo<T> prev;
     protected Nodo<T> next;
