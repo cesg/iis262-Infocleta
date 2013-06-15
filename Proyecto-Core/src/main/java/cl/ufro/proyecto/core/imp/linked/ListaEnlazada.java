@@ -17,103 +17,105 @@ public class ListaEnlazada implements ListaAlumnos {
     private int items;
 
     public ListaEnlazada() {
-	items = 0;
+        items = 0;
     }
 
     @Override
     public void insertar(Alumno a) {
-	Nodo<Alumno> nuevo = new Nodo<>(a);
-	Nodo<Alumno> actual = primero;
-	Nodo<Alumno> anterior = null;
-	while (actual != null && a.compareTo(actual.getValue()) > 0) {
-	    anterior = actual;
-	    actual = actual.next;
-	}
-	if (anterior == null)
-	    primero = nuevo;
-	else {
-	    anterior.next = nuevo;
-	}
-	// nuevo.prev = actual.prev;
-	nuevo.next = actual;
-	// actual.prev = nuevo;
+        Nodo<Alumno> nuevo = new Nodo<>(a);
+        Nodo<Alumno> actual = primero;
+        Nodo<Alumno> anterior = null;
+        while (actual != null && a.compareTo(actual.getValue()) > 0) {
+            anterior = actual;
+            actual = actual.next;
+        }
+        if (anterior == null)
+            primero = nuevo;
+        else {
+            anterior.next = nuevo;
+        }
+        // TODO enlace previo
+        // nuevo.prev = actual.prev;
+        nuevo.next = actual;
+        // actual.prev = nuevo;
 
-	items++;
+        items++;
     }
 
     @Override
     public boolean eliminar(Alumno a) {
-	// TODO Auto-generated method stub
-	return false;
+        return false;
     }
 
     @Override
     public Alumno obtener(String matricula) {
-	// TODO Auto-generated method stub
-	return null;
+        return null;
     }
 
     @Override
     public boolean contiene(Alumno a) {
-	// TODO Auto-generated method stub
-	return false;
+        return false;
     }
 
     @Override
     public Alumno ultimo() {
-	// TODO Auto-generated method stub
-	return null;
+        return null;
     }
 
     @Override
     public Alumno primero() {
-	// TODO Auto-generated method stub
-	return null;
+        return null;
     }
 
     @Override
     public boolean estaVacia() {
-	// TODO Auto-generated method stub
-	return false;
+        return items == 0;
     }
 
     @Override
     public int largo() {
-	// TODO Auto-generated method stub
-	return 0;
+        return items;
     }
 
     @Override
     public Iterator<Alumno> iterator() {
-	return new ListaEnlazadaItr();
+        return new ListaEnlazadaItr();
     }
 
+    /**
+     * <p>
+     * Implementación de un iterador para una lista enlazada de alumnos
+     * </p>
+     * 
+     * @author c3sg
+     * 
+     */
     protected class ListaEnlazadaItr implements Iterator<Alumno> {
 
-	private boolean first;
-	Nodo<Alumno> actual;
+        private boolean first;
+        Nodo<Alumno> actual;
 
-	public ListaEnlazadaItr() {
-	    first = true;
-	    actual = primero;
-	}
+        public ListaEnlazadaItr() {
+            first = true;
+            actual = primero;
+        }
 
-	@Override
-	public boolean hasNext() {
-	    return actual.next != null;
-	}
+        @Override
+        public boolean hasNext() {
+            return actual.next != null;
+        }
 
-	@Override
-	public Alumno next() {
-	    if (!first)
-		actual = actual.next;
-	    first = false;
-	    return actual.getValue();
-	}
+        @Override
+        public Alumno next() {
+            if (!first)
+                actual = actual.next;
+            first = false;
+            return actual.getValue();
+        }
 
-	@Override
-	public void remove() {
-	}
+        @Override
+        public void remove() {
+        }
 
     }
 }
