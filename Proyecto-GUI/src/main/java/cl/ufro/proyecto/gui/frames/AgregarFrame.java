@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -86,11 +87,11 @@ public class AgregarFrame {
         });
         btnAgregar.setBounds(173, 214, 98, 24);
         frame.getContentPane().add(btnAgregar);
-        /* ${component_name} */
+        /* lblApellido */
         lblApellido = new JLabel("APELLIDO");
         lblApellido.setBounds(63, 152, 92, 18);
         frame.getContentPane().add(lblApellido);
-        /* ${component_name} */
+        /* textField */
         textField = new JTextField();
         textField.setBounds(173, 150, 200, 22);
         frame.getContentPane().add(textField);
@@ -98,8 +99,12 @@ public class AgregarFrame {
     }
 
     protected void btnAgregarActionPerformed(ActionEvent arg0) {
-        Alumno a = new Alumno(txtFNombre.getText(), txtFMatricula.getText(),
-                null, null);
-        controlador.agregarAlumno(a);
+        String nombre = txtFNombre.getText();
+        String matricual = txtFMatricula.getText();
+        if (StringUtils.isNotEmpty(nombre) || StringUtils.isNotEmpty(matricual)) {
+            Alumno a = new Alumno(nombre, matricual, null, null);
+            controlador.agregarAlumno(a);
+        }
+
     }
 }

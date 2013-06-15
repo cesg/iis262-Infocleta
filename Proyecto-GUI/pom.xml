@@ -32,12 +32,6 @@
   </build>
   <dependencies>
     <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>6.5.2</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
         <groupId>${project.groupId}</groupId>
         <artifactId>Proyecto-Beans</artifactId>
         <version>${project.version}</version>

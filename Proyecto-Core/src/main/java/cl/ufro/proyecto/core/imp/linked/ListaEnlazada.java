@@ -17,6 +17,8 @@ public class ListaEnlazada implements ListaAlumnos {
     private int items;
 
     public ListaEnlazada() {
+        primero = null;
+        ultimo = null;
         items = 0;
     }
 
@@ -59,12 +61,12 @@ public class ListaEnlazada implements ListaAlumnos {
 
     @Override
     public Alumno ultimo() {
-        return null;
+        return ultimo.getValue();
     }
 
     @Override
     public Alumno primero() {
-        return null;
+        return primero.getValue();
     }
 
     @Override
@@ -102,7 +104,10 @@ public class ListaEnlazada implements ListaAlumnos {
 
         @Override
         public boolean hasNext() {
-            return actual.next != null;
+            if (first)
+                return true;
+            else
+                return actual.next != null;
         }
 
         @Override

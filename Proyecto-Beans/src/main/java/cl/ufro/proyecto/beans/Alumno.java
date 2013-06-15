@@ -86,7 +86,7 @@ public class Alumno implements Comparable<Alumno> {
     }
 
     public String toString() {
-        return this.nombre;
+        return this.matricula;
     }
 
     public int compareTo(Alumno a) {

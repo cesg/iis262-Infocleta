@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cl.ufro.proyecto.beans.Alumno;
+import cl.ufro.proyecto.beans.ListaAlumnos;
 import cl.ufro.proyecto.gui.ControladorGUI;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -88,15 +89,20 @@ public class MainFrame {
         frame.getContentPane().add(lblListaAlumnos);
 
         btnActualizar = new JButton("Actualizar");
+        btnActualizar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                btnActualizarActionPerformed(arg0);
+            }
+        });
         btnActualizar.setBounds(244, 289, 98, 24);
         frame.getContentPane().add(btnActualizar);
 
         // FIXME:
-        Alumno a = new Alumno("Dummy", "1234567", "PDummy", "MDummy");
-        Alumno a2 = new Alumno("Dummy2", "1234568", "PDummy2", "MDummy2");
+        // Alumno a = new Alumno("Dummy", "1234567", "PDummy", "MDummy");
+        // Alumno a2 = new Alumno("Dummy2", "1234568", "PDummy2", "MDummy2");
         listModel = new DefaultListModel<>();
-        listModel.addElement(a);
-        listModel.addElement(a2);
+        // listModel.addElement(a);
+        // listModel.addElement(a2);
         this.list.setModel(listModel);
         /* btnDetalle */
         btnDetalle = new JButton("Detalle");
@@ -115,5 +121,14 @@ public class MainFrame {
 
     protected void btnDetalleActionPerformed(ActionEvent arg0) {
         AlumnoInfFrame.main(list.getSelectedValue());
+    }
+
+    protected void btnActualizarActionPerformed(ActionEvent arg0) {
+        ListaAlumnos listaAlumnos = controlador.todosAlumnos();
+        listModel.clear();
+        for (Alumno alumno : listaAlumnos) {
+            listModel.addElement(alumno);
+        }
+        list.revalidate();
     }
 }
