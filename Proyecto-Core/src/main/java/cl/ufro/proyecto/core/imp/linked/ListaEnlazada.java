@@ -52,10 +52,6 @@ public class ListaEnlazada implements ListaAlumnos {
         items++;
     }
 
-    private void insertarDespues(Nodo<Alumno> base, Nodo<Alumno> nuevo) {
-
-    }
-
     @Override
     public boolean eliminar(Alumno a) {
         Nodo<Alumno> actual = primero;
