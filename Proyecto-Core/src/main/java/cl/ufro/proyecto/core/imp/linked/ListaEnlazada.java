@@ -2,6 +2,8 @@ package cl.ufro.proyecto.core.imp.linked;
 
 import java.util.Iterator;
 
+import javax.naming.directory.InvalidAttributesException;
+
 import cl.ufro.proyecto.beans.Alumno;
 import cl.ufro.proyecto.beans.ListaAlumnos;
 
@@ -24,29 +26,47 @@ public class ListaEnlazada implements ListaAlumnos {
 
     @Override
     public void insertar(Alumno a) {
+        if (a == null)
+            throw new IllegalArgumentException("El atributo no puede ser nulo.");
+
         Nodo<Alumno> nuevo = new Nodo<>(a);
         Nodo<Alumno> actual = primero;
         Nodo<Alumno> anterior = null;
+        // Mientras 'a' sea mayor que el Alumno en actual.
         while (actual != null && a.compareTo(actual.getValue()) > 0) {
             anterior = actual;
             actual = actual.next;
         }
-        if (anterior == null)
+        if (anterior == null) {
             primero = nuevo;
-        else {
+        } else {
             anterior.next = nuevo;
+            nuevo.prev = anterior;
         }
-        // TODO enlace previo
-        // nuevo.prev = actual.prev;
         nuevo.next = actual;
-        // actual.prev = nuevo;
+        if (actual != null)
+            actual.prev = nuevo;
 
+        if (nuevo.next == null)
+            ultimo = nuevo;
         items++;
     }
 
     @Override
     public boolean eliminar(Alumno a) {
-        return false;
+        Nodo<Alumno> actual = primero;
+        // Nodo<Alumno> anterior = null;
+        while (!a.equals(actual.getValue())) {
+            actual = actual.next;
+            if (actual == null)
+                return false;
+        }
+        if (actual == primero)
+            primero = actual.next;
+        else
+            actual.next.prev = actual.prev;
+
+        return true;
     }
 
     @Override
@@ -82,6 +102,17 @@ public class ListaEnlazada implements ListaAlumnos {
     @Override
     public Iterator<Alumno> iterator() {
         return new ListaEnlazadaItr();
+    }
+
+    public void imprimeDesdeUlt() {
+        Nodo<Alumno> actual = ultimo;
+        System.out.print("{ ");
+        while (actual != null) {
+            System.out.print(actual.getValue());
+            System.out.print(" ");
+            actual = actual.prev;
+        }
+        System.out.print("}");
     }
 
     /**
@@ -121,6 +152,5 @@ public class ListaEnlazada implements ListaAlumnos {
         @Override
         public void remove() {
         }
-
     }
 }
