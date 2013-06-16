@@ -9,6 +9,9 @@ import javax.swing.JLabel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AlumnoInfFrame {
 
@@ -18,11 +21,10 @@ public class AlumnoInfFrame {
     private Alumno alumno;
     private JLabel lblNombre;
     private JLabel lblMatricula;
-    private JLabel lblApellido;
     private JLabel lblNombreOut;
     private JLabel lblMatriculaOut;
-    private JLabel lblApellidoOut;
     private JLabel lblDetalle;
+    private JButton btnAceptar;
 
     /**
      * Launch the application.
@@ -48,7 +50,6 @@ public class AlumnoInfFrame {
         if (alumno != null) {
             lblNombreOut.setText(this.alumno.getNombre());
             lblMatriculaOut.setText(this.alumno.getMatricula());
-            lblApellidoOut.setText(this.alumno.getApellidoPaterno());
         }
     }
 
@@ -75,10 +76,6 @@ public class AlumnoInfFrame {
         lblMatricula = new JLabel("Matricula");
         lblMatricula.setBounds(40, 94, 55, 14);
         frame.getContentPane().add(lblMatricula);
-        /* lblApellido */
-        lblApellido = new JLabel("Apellido?");
-        lblApellido.setBounds(40, 120, 55, 14);
-        frame.getContentPane().add(lblApellido);
         /* lblNombreOut */
         lblNombreOut = new JLabel("");
         lblNombreOut.setBounds(107, 62, 200, 22);
@@ -87,13 +84,22 @@ public class AlumnoInfFrame {
         lblMatriculaOut = new JLabel("");
         lblMatriculaOut.setBounds(107, 94, 200, 22);
         frame.getContentPane().add(lblMatriculaOut);
-        /* lblApellidoOut */
-        lblApellidoOut = new JLabel("");
-        lblApellidoOut.setBounds(107, 120, 200, 22);
-        frame.getContentPane().add(lblApellidoOut);
         /* lblDetalle */
         lblDetalle = new JLabel("DETALLE");
         lblDetalle.setBounds(40, 12, 267, 22);
         frame.getContentPane().add(lblDetalle);
+        /* ${component_name} */
+        btnAceptar = new JButton("Aceptar");
+        btnAceptar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                btnAceptarActionPerformed(e);
+            }
+        });
+        btnAceptar.setBounds(107, 144, 98, 24);
+        frame.getContentPane().add(btnAceptar);
+    }
+
+    protected void btnAceptarActionPerformed(ActionEvent e) {
+        this.frame.dispose();
     }
 }

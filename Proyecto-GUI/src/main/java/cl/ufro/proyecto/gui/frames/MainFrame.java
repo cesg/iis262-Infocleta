@@ -96,13 +96,7 @@ public class MainFrame {
         });
         btnActualizar.setBounds(244, 289, 98, 24);
         frame.getContentPane().add(btnActualizar);
-
-        // FIXME:
-        // Alumno a = new Alumno("Dummy", "1234567", "PDummy", "MDummy");
-        // Alumno a2 = new Alumno("Dummy2", "1234568", "PDummy2", "MDummy2");
         listModel = new DefaultListModel<>();
-        // listModel.addElement(a);
-        // listModel.addElement(a2);
         this.list.setModel(listModel);
         /* btnDetalle */
         btnDetalle = new JButton("Detalle");

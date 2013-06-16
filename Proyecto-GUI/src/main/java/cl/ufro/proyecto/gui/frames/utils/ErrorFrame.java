@@ -1,4 +1,4 @@
-package cl.ufro.proyecto.gui.frames;
+package cl.ufro.proyecto.gui.frames.utils;
 
 import java.awt.EventQueue;
 
