@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import cl.ufro.proyecto.beans.Alumno;
 import cl.ufro.proyecto.gui.ControladorGUI;
+import cl.ufro.proyecto.gui.frames.utils.ErrorFrame;
 import cl.ufro.proyecto.gui.frames.utils.InfoFrame;
 
 import javax.swing.JLabel;
@@ -102,6 +103,8 @@ public class AgregarFrame {
             sb.append("Matricula: ");
             sb.append(a.getMatricula());
             InfoFrame.main("Alumno ingresado", sb.toString());
+        } else {
+            ErrorFrame.main("Valores incorrectos", "Cadena vacia.");
         }
 
     }
