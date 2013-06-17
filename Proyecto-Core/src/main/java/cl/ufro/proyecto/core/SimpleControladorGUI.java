@@ -26,7 +26,7 @@ public class SimpleControladorGUI implements ControladorGUI {
     public void agregarAlumno(Alumno a) {
         LOGGER.debug("Insertando Alumno {}: ", a);
         lista.insertar(a);
-    }}
+    }
 
     @Override
     public Alumno buscarAlumno(Alumno a) {
