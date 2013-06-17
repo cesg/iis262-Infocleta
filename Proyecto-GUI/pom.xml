@@ -24,8 +24,8 @@
         <version>3.0</version>
         <configuration>
           <!-- http://maven.apache.org/plugins/maven-compiler-plugin/ -->
-          <source>1.7</source>
-          <target>1.7</target>
+          <source>${jse.version}</source>
+          <target>${jse.version}</target>
         </configuration>
       </plugin>
   </plugins>
