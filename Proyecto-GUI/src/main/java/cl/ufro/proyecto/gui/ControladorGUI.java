@@ -18,6 +18,8 @@ public interface ControladorGUI {
     void agregarAlumno(Alumno a);
 
     Alumno buscarAlumno(Alumno a);
+    
+    boolean borrarAlumno(Alumno a);
 
     ListaAlumnos todosAlumnos();
 }
