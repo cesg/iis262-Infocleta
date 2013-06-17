@@ -24,7 +24,7 @@ public class SimpleControladorGUI implements ControladorGUI {
 
     @Override
     public void agregarAlumno(Alumno a) {
-        LOGGER.debug("Insertando Alumno {}: ",a);
+        LOGGER.debug("Insertando Alumno {}: ", a);
         lista.insertar(a);
     }
 
@@ -37,6 +37,12 @@ public class SimpleControladorGUI implements ControladorGUI {
     @Override
     public ListaAlumnos todosAlumnos() {
         return lista;
+    }
+
+    @Override
+    public boolean borrarAlumno(Alumno a) {
+        LOGGER.debug("Eliminando Alumno {}", a);
+        return lista.eliminar(a);
     }
 
 }
