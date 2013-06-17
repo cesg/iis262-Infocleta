@@ -24,14 +24,14 @@ public class SimpleControladorGUI implements ControladorGUI {
 
     @Override
     public void agregarAlumno(Alumno a) {
-        LOGGER.debug("Insertando Alumno {}: ",a);
+        LOGGER.debug("Insertando Alumno {} ", a);
         lista.insertar(a);
     }
 
     @Override
     public Alumno buscarAlumno(Alumno a) {
-        lista.contiene(a);
-        return null;
+        LOGGER.debug("# Buscando Alumno {}", a);
+        return lista.obtener(a.getMatricula());
     }
 
     @Override

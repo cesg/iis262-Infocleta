@@ -2,8 +2,6 @@ package cl.ufro.proyecto.core.imp.linked;
 
 import java.util.Iterator;
 
-import javax.naming.directory.InvalidAttributesException;
-
 import cl.ufro.proyecto.beans.Alumno;
 import cl.ufro.proyecto.beans.ListaAlumnos;
 
@@ -54,6 +52,8 @@ public class ListaEnlazada implements ListaAlumnos {
 
     @Override
     public boolean eliminar(Alumno a) {
+        if (estaVacia() || a == null)
+            return false;
         Nodo<Alumno> actual = primero;
         // Nodo<Alumno> anterior = null;
         while (!a.equals(actual.getValue())) {
@@ -64,8 +64,8 @@ public class ListaEnlazada implements ListaAlumnos {
         if (actual == primero)
             primero = actual.next;
         else
-            actual.next.prev = actual.prev;
-
+            actual.prev.next = actual.next;
+        items--;
         return true;
     }
 
