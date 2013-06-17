@@ -25,7 +25,7 @@ public class ErrorFrame {
     /**
      * Launch the application.
      */
-    public static void main(final String causa, final String detalle) {
+    public static void iniciar(final String causa, final String detalle) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {

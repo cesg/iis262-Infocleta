@@ -29,7 +29,7 @@ public class AlumnoInfFrame {
     /**
      * Launch the application.
      */
-    public static void main(final Alumno alumno) {
+    public static void iniciar(final Alumno alumno) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {

@@ -24,7 +24,7 @@ public class InfoFrame {
     /**
      * Launch the application.
      */
-    public static void main(final String info, final String detalle) {
+    public static void iniciar(final String info, final String detalle) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {

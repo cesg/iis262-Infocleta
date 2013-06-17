@@ -34,7 +34,7 @@ public class MainFrame {
     /**
      * Launch the application.
      */
-    public static void main(ControladorGUI controlador) {
+    public static void iniciar(ControladorGUI controlador) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -110,11 +110,11 @@ public class MainFrame {
     }
 
     protected void btnAgregarActionPerformed(ActionEvent e) {
-        AgregarFrame.main(controlador);
+        AgregarFrame.iniciar(controlador);
     }
 
     protected void btnDetalleActionPerformed(ActionEvent arg0) {
-        AlumnoInfFrame.main(list.getSelectedValue());
+        AlumnoInfFrame.iniciar(list.getSelectedValue());
     }
 
     protected void btnActualizarActionPerformed(ActionEvent arg0) {

@@ -18,6 +18,6 @@ public class Aplicacion {
         int listaLargo = 10;
         final ControladorGUI controladorGUI = new SimpleControladorGUI(listaLargo);
         Ayudante.iniciaEstiloVisual();
-       MainFrame.main(controladorGUI);
+       MainFrame.iniciar(controladorGUI);
     } 
 }

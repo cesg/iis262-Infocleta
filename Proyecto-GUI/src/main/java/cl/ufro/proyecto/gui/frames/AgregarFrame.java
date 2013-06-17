@@ -32,7 +32,7 @@ public class AgregarFrame {
     /**
      * Launch the application.
      */
-    public static void main(ControladorGUI controlador) {
+    public static void iniciar(ControladorGUI controlador) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -102,9 +102,9 @@ public class AgregarFrame {
             sb.append("\n");
             sb.append("Matricula: ");
             sb.append(a.getMatricula());
-            InfoFrame.main("Alumno ingresado", sb.toString());
+            InfoFrame.iniciar("Alumno ingresado", sb.toString());
         } else {
-            ErrorFrame.main("Valores incorrectos", "Cadena vacia.");
+            ErrorFrame.iniciar("Valores incorrectos", "Cadena vacia.");
         }
 
     }
