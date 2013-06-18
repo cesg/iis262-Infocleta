@@ -45,4 +45,16 @@ public class SimpleControladorGUI implements ControladorGUI {
         return lista.eliminar(a);
     }
 
+    @Override
+    public Alumno buscarAlumno(String codigo) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public boolean borrarAlumno(String codigo) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
 }
