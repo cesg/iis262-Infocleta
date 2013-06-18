@@ -1,3 +1,6 @@
+/*
+ * WindowBuilder 
+ * */
 package cl.ufro.proyecto.gui.frames;
 
 import java.awt.EventQueue;
