@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cl.ufro</groupId>
-	<artifactId>IIS262-Proyecto</artifactId>
+	<artifactId>IIS262-Infocleta</artifactId>
 	<version>1.1-2</version>
 	<packaging>pom</packaging>
-	<name>IIS262-Proyecto</name>
+	<name>IIS262-Infocleta</name>
 
 	<dependencies>
 		<dependency>
@@ -31,11 +31,12 @@
 	</dependencies>
 
 	<modules>
-		<module>Proyecto-Core</module>
-		<module>Proyecto-GUI</module>
-		<module>Proyecto-Beans</module>
+		<module>${final.name}-Core</module>
+		<module>${final.name}-GUI</module>
+		<module>${final.name}-Beans</module>
 	</modules>
 	<properties>
 		<jse.version>1.7</jse.version>
+		<final.name>Infocleta</final.name>
 	</properties>
 </project>

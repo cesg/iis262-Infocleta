@@ -4,13 +4,13 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>cl.ufro</groupId>
-    <artifactId>IIS262-Proyecto</artifactId>
+    <artifactId>IIS262-Infocleta</artifactId>
     <version>1.1-2</version>
   </parent>
 <!--   <groupId>cl.ufro</groupId> -->
-  <artifactId>Proyecto-Core</artifactId>
+  <artifactId>Infocleta-Core</artifactId>
 <!--   <version>1.0-SNAPSHOT</version> -->
-  <name>Proyecto-Core</name>
+  <name>Infocleta-Core</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -122,7 +122,7 @@
   <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>Proyecto-GUI</artifactId>
+      <artifactId>${final.name}-GUI</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
@@ -132,7 +132,7 @@
     </dependency>
     <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>Proyecto-Beans</artifactId>
+        <artifactId>${final.name}-Beans</artifactId>
         <version>${project.version}</version>
     </dependency>
     <dependency>
