@@ -84,7 +84,7 @@
   
    <!-- COMPILADO -->
     <build>
-        <finalName>Bicicletario</finalName>
+        <finalName>Infocleta</finalName>
         <plugins>
 			<plugin>
         <groupId>org.apache.maven.plugins</groupId>
