@@ -85,6 +85,11 @@ public class MainFrame {
         frame.getContentPane().add(btnAgregar);
 
         btnEliminar = new JButton("Eliminar");
+        btnEliminar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                btnEliminarActionPerformed(arg0);
+            }
+        });
         btnEliminar.setBounds(244, 325, 98, 24);
         frame.getContentPane().add(btnEliminar);
 
@@ -128,5 +133,11 @@ public class MainFrame {
             listModel.addElement(alumno);
         }
         list.revalidate();
+    }
+
+    protected void btnEliminarActionPerformed(ActionEvent arg0) {
+        Alumno a = list.getSelectedValue();
+        if (a != null)
+            controlador.borrarAlumno(a);
     }
 }
