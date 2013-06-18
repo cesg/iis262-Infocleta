@@ -1,9 +1,9 @@
-package cl.ufro.proyecto.core.imp.linked;
+package cl.ufro.infocleta.core.imp.linked;
 
 import java.util.Iterator;
 
-import cl.ufro.proyecto.beans.Alumno;
-import cl.ufro.proyecto.beans.ListaAlumnos;
+import cl.ufro.infocleta.beans.Alumno;
+import cl.ufro.infocleta.beans.ListaAlumnos;
 
 /**
  * Lista enlazada de inserción ordenada.

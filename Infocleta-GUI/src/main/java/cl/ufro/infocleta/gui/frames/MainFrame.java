@@ -1,7 +1,7 @@
 /*
  * WindowBuilder 
  * */
-package cl.ufro.proyecto.gui.frames;
+package cl.ufro.infocleta.gui.frames;
 
 import java.awt.EventQueue;
 
@@ -14,9 +14,10 @@ import javax.swing.JScrollPane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cl.ufro.proyecto.beans.Alumno;
-import cl.ufro.proyecto.beans.ListaAlumnos;
-import cl.ufro.proyecto.gui.ControladorGUI;
+import cl.ufro.infocleta.beans.Alumno;
+import cl.ufro.infocleta.beans.ListaAlumnos;
+import cl.ufro.infocleta.gui.ControladorGUI;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 

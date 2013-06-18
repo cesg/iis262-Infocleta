@@ -1,4 +1,4 @@
-package cl.ufro.proyecto.core.imp.linked;
+package cl.ufro.infocleta.core.imp.linked;
 
 public class Nodo<T extends Comparable<T>> {
     private T value;

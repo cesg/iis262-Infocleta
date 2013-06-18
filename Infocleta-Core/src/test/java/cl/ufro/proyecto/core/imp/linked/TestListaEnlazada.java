@@ -4,8 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import cl.ufro.proyecto.beans.Alumno;
-import cl.ufro.proyecto.beans.ListaAlumnos;
+import cl.ufro.infocleta.beans.Alumno;
+import cl.ufro.infocleta.beans.ListaAlumnos;
+import cl.ufro.infocleta.core.imp.linked.ListaEnlazada;
 
 public class TestListaEnlazada {
     ListaAlumnos listaAlumnos;

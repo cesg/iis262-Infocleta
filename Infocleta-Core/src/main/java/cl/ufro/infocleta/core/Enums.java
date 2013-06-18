@@ -1,4 +1,4 @@
-package cl.ufro.proyecto.core;
+package cl.ufro.infocleta.core;
 
 enum Laf {
     DEFAULT("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"), SYSTEM(null), SYSTEM_LINUX(

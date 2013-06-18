@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import cl.ufro.infocleta.beans.Alumno;
+
 public class TestAlumno {
 
     @Test

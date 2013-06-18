@@ -1,12 +1,12 @@
-package cl.ufro.proyecto.core.imp.array;
+package cl.ufro.infocleta.core.imp.array;
 
 import java.util.Iterator;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cl.ufro.proyecto.beans.Alumno;
-import cl.ufro.proyecto.beans.ListaAlumnos;
+import cl.ufro.infocleta.beans.Alumno;
+import cl.ufro.infocleta.beans.ListaAlumnos;
 
 /**
  * @author c3sg

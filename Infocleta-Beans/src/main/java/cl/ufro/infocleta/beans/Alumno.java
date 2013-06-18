@@ -1,4 +1,4 @@
-package cl.ufro.proyecto.beans;
+package cl.ufro.infocleta.beans;
 
 /**
  * <p>

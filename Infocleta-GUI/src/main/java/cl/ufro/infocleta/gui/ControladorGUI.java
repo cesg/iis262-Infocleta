@@ -1,7 +1,7 @@
-package cl.ufro.proyecto.gui;
+package cl.ufro.infocleta.gui;
 
-import cl.ufro.proyecto.beans.Alumno;
-import cl.ufro.proyecto.beans.ListaAlumnos;
+import cl.ufro.infocleta.beans.Alumno;
+import cl.ufro.infocleta.beans.ListaAlumnos;
 
 /**
  * Es la comunicación con la GUI Se debe ir agregabdo cada método necesario en

@@ -1,4 +1,4 @@
-package cl.ufro.proyecto.core;
+package cl.ufro.infocleta.core;
 
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;

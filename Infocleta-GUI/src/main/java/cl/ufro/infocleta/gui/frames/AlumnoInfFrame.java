@@ -1,13 +1,14 @@
 /*
  * WindowBuilder 
  * */
-package cl.ufro.proyecto.gui.frames;
+package cl.ufro.infocleta.gui.frames;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-import cl.ufro.proyecto.beans.Alumno;
+import cl.ufro.infocleta.beans.Alumno;
+
 import javax.swing.JLabel;
 
 import org.slf4j.Logger;

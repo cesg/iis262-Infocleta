@@ -1,7 +1,7 @@
 /*
  * WindowBuilder 
  * */
-package cl.ufro.proyecto.gui.frames;
+package cl.ufro.infocleta.gui.frames;
 
 import java.awt.EventQueue;
 
@@ -11,10 +11,10 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cl.ufro.proyecto.beans.Alumno;
-import cl.ufro.proyecto.gui.ControladorGUI;
-import cl.ufro.proyecto.gui.frames.utils.ErrorFrame;
-import cl.ufro.proyecto.gui.frames.utils.InfoFrame;
+import cl.ufro.infocleta.beans.Alumno;
+import cl.ufro.infocleta.gui.ControladorGUI;
+import cl.ufro.infocleta.gui.frames.utils.ErrorFrame;
+import cl.ufro.infocleta.gui.frames.utils.InfoFrame;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;

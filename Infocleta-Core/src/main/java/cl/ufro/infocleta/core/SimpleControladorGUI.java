@@ -1,12 +1,12 @@
-package cl.ufro.proyecto.core;
+package cl.ufro.infocleta.core;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cl.ufro.proyecto.beans.Alumno;
-import cl.ufro.proyecto.beans.ListaAlumnos;
-import cl.ufro.proyecto.core.imp.linked.ListaEnlazada;
-import cl.ufro.proyecto.gui.ControladorGUI;
+import cl.ufro.infocleta.beans.Alumno;
+import cl.ufro.infocleta.beans.ListaAlumnos;
+import cl.ufro.infocleta.core.imp.linked.ListaEnlazada;
+import cl.ufro.infocleta.gui.ControladorGUI;
 
 /**
  * 
