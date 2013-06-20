@@ -99,6 +99,9 @@ public class ListaEnlazada implements ListaAlumnos {
      */
     private Nodo<Alumno> recObtener(Alumno a, Nodo<Alumno> izq, Nodo<Alumno> der) {
         Nodo<Alumno> alumno = null;
+        if(izq == der)
+            return alumno;
+        
         if (a.equals(izq.value)) {
             alumno = izq;
         } else if (a.equals(der.value))
