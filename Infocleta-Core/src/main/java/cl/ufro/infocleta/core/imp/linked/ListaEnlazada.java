@@ -57,21 +57,25 @@ public class ListaEnlazada implements ListaAlumnos {
         // FIXME Utilizar metodo obtener para mejor desempeño.
         Nodo<Alumno> alumno = recObtener(a, primero, ultimo);
         if (alumno != null) {
-
-        }
-        Nodo<Alumno> actual = primero;
-        // Nodo<Alumno> anterior = null;
-        while (!a.equals(actual.value)) {
-            actual = actual.next;
-            if (actual == null)
-                return false;
-        }
-        if (actual == primero)
-            primero = actual.next;
-        else
-            actual.prev.next = actual.next;
-        items--;
-        return true;
+            if (alumno.prev != null)
+                alumno.prev.next = alumno.next;
+            if (alumno.next != null)
+                alumno.next.prev = alumno.prev;
+            return true;
+        } else
+            // Nodo<Alumno> actual = primero;
+            // // Nodo<Alumno> anterior = null;
+            // while (!a.equals(actual.value)) {
+            // actual = actual.next;
+            // if (actual == null)
+            // return false;
+            // }
+            // if (actual == primero)
+            // primero = actual.next;
+            // else
+            // actual.prev.next = actual.next;
+            // items--;
+            return false;
     }
 
     @Override
@@ -85,7 +89,9 @@ public class ListaEnlazada implements ListaAlumnos {
      * Obtiene una alumno de forma recursiva imitando el métido de busqueda
      * binaria.
      * </p>
-     * <b>Nodo<Alumno> recObtener(Alumno a, Nodo<Alumno> izq, Nodo<Alumno> der)</b>
+     * <b>Nodo<Alumno> recObtener(Alumno a, Nodo<Alumno> izq, Nodo<Alumno>
+     * der)</b>
+     * 
      * @param a
      * @param izq
      * @param der

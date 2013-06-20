@@ -33,8 +33,8 @@ public class TestListaEnlazada {
     }
 
     @Test
-    public void testBorrar() {
-	System.out.println("testBorrar()");
+    public void testEliminar() {
+	System.out.println("testEliminar()");
 	ListaEnlazada listaAlumnos = new ListaEnlazada();
 	Alumno a = new Alumno("Dummy", "1");
 	Alumno a2 = new Alumno("Dummy2", "0");
@@ -51,7 +51,7 @@ public class TestListaEnlazada {
 	}
 	System.out.println();
 
-	boolean result = listaAlumnos.eliminar(a3);
+	boolean result = listaAlumnos.eliminar(a4);
 	assertTrue(result);
 	for (Alumno alumno : listaAlumnos) {
 	    System.out.print(alumno);
