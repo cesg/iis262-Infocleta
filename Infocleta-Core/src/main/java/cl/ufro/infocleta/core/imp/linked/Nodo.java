@@ -1,7 +1,7 @@
 package cl.ufro.infocleta.core.imp.linked;
 
 public class Nodo<T extends Comparable<T>> {
-    private T value;
+    protected T value;
     protected Nodo<T> prev;
     protected Nodo<T> next;
     
