@@ -20,6 +20,8 @@ import cl.ufro.infocleta.gui.ControladorGUI;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JInternalFrame;
+import javax.swing.UIManager;
 
 public class MainFrame {
 
@@ -34,6 +36,11 @@ public class MainFrame {
     private static final Logger LOGGER = LoggerFactory
             .getLogger(MainFrame.class);
     private JButton btnDetalle;
+    private JInternalFrame internalFrame;
+    private JLabel lblNombre;
+    private JLabel lblNombreout;
+    private JLabel lblMatricula;
+    private JLabel lblMatriculaout;
 
     /**
      * Launch the application.
@@ -64,12 +71,12 @@ public class MainFrame {
      */
     private void initialize() {
         frame = new JFrame();
-        frame.setBounds(100, 100, 413, 477);
+        frame.setBounds(100, 100, 488, 592);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
 
         JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setBounds(28, 62, 163, 321);
+        scrollPane.setBounds(28, 62, 163, 395);
         frame.getContentPane().add(scrollPane);
 
         list = new JList<>();
@@ -81,11 +88,16 @@ public class MainFrame {
                 btnAgregarActionPerformed(e);
             }
         });
-        btnAgregar.setBounds(244, 359, 98, 24);
+        btnAgregar.setBounds(248, 494, 98, 24);
         frame.getContentPane().add(btnAgregar);
 
         btnEliminar = new JButton("Eliminar");
-        btnEliminar.setBounds(244, 325, 98, 24);
+        btnEliminar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                btnEliminarActionPerformed(arg0);
+            }
+        });
+        btnEliminar.setBounds(358, 494, 98, 24);
         frame.getContentPane().add(btnEliminar);
 
         lblListaAlumnos = new JLabel("LISTA ALUMNOS");
@@ -98,7 +110,7 @@ public class MainFrame {
                 btnActualizarActionPerformed(arg0);
             }
         });
-        btnActualizar.setBounds(244, 289, 98, 24);
+        btnActualizar.setBounds(138, 494, 98, 24);
         frame.getContentPane().add(btnActualizar);
         listModel = new DefaultListModel<>();
         this.list.setModel(listModel);
@@ -109,8 +121,33 @@ public class MainFrame {
                 btnDetalleActionPerformed(arg0);
             }
         });
-        btnDetalle.setBounds(244, 259, 98, 24);
+        btnDetalle.setBounds(28, 494, 98, 24);
         frame.getContentPane().add(btnDetalle);
+        /* internalFrame */
+        internalFrame = new JInternalFrame("Detalle");
+        internalFrame.setBorder(UIManager
+                .getBorder("InternalFrame.paletteBorder"));
+        internalFrame.setResizable(true);
+        internalFrame.setBounds(224, 62, 228, 270);
+        frame.getContentPane().add(internalFrame);
+        internalFrame.getContentPane().setLayout(null);
+        /* lblNombre */
+        lblNombre = new JLabel("Nombre");
+        lblNombre.setBounds(12, 24, 55, 14);
+        internalFrame.getContentPane().add(lblNombre);
+        /* lblNombreout */
+        lblNombreout = new JLabel("");
+        lblNombreout.setBounds(12, 50, 194, 20);
+        internalFrame.getContentPane().add(lblNombreout);
+        /* lblMatricula */
+        lblMatricula = new JLabel("Matricula");
+        lblMatricula.setBounds(12, 93, 83, 20);
+        internalFrame.getContentPane().add(lblMatricula);
+        /* lblMatriculaout */
+        lblMatriculaout = new JLabel("");
+        lblMatriculaout.setBounds(12, 125, 194, 20);
+        internalFrame.getContentPane().add(lblMatriculaout);
+        internalFrame.setVisible(true);
     }
 
     protected void btnAgregarActionPerformed(ActionEvent e) {
@@ -118,7 +155,12 @@ public class MainFrame {
     }
 
     protected void btnDetalleActionPerformed(ActionEvent arg0) {
-        AlumnoInfFrame.iniciar(list.getSelectedValue());
+        Alumno alumno = list.getSelectedValue();
+        if (alumno != null) {
+            lblNombreout.setText(alumno.getNombre());
+            lblMatriculaout.setText(alumno.getMatricula());
+        }
+        // AlumnoInfFrame.iniciar(list.getSelectedValue());
     }
 
     protected void btnActualizarActionPerformed(ActionEvent arg0) {
@@ -128,5 +170,11 @@ public class MainFrame {
             listModel.addElement(alumno);
         }
         list.revalidate();
+    }
+
+    protected void btnEliminarActionPerformed(ActionEvent arg0) {
+        Alumno a = list.getSelectedValue();
+        if (a != null)
+            controlador.borrarAlumno(a);
     }
 }
