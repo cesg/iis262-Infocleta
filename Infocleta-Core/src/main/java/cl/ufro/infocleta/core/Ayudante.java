@@ -51,6 +51,9 @@ public class Ayudante {
         case "jtattoo":
             laf = Laf.JTATOO;
             break;
+        case "seaglass":
+            laf = Laf.SEAGLASS;
+            break;
         case "sistema":
             if (SystemUtils.IS_OS_LINUX)
                 laf = Laf.SYSTEM_LINUX;
