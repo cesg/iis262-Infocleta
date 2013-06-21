@@ -86,7 +86,7 @@ public class ListaEnlazada implements ListaAlumnos {
 	    // primero = actual.next;
 	    // else
 	    // actual.prev.next = actual.next;
-	    // items--;
+	     items--;
 	    return false;
     }
 
