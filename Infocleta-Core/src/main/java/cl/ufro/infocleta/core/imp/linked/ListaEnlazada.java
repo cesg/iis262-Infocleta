@@ -17,71 +17,83 @@ public class ListaEnlazada implements ListaAlumnos {
     private int items;
 
     public ListaEnlazada() {
-        primero = null;
-        ultimo = null;
-        items = 0;
+	primero = null;
+	ultimo = null;
+	items = 0;
     }
 
     @Override
     public void insertar(Alumno a) {
-        if (a == null)
-            throw new IllegalArgumentException("El atributo no puede ser nulo.");
+	if (a == null)
+	    throw new IllegalArgumentException("El atributo no puede ser nulo.");
 
-        Nodo<Alumno> nuevo = new Nodo<>(a);
-        Nodo<Alumno> actual = primero;
-        Nodo<Alumno> anterior = null;
-        // Mientras 'a' sea mayor que el Alumno en actual.
-        while (actual != null && a.compareTo(actual.value) > 0) {
-            anterior = actual;
-            actual = actual.next;
-        }
-        if (anterior == null) {
-            primero = nuevo;
-        } else {
-            anterior.next = nuevo;
-            nuevo.prev = anterior;
-        }
-        nuevo.next = actual;
-        if (actual != null)
-            actual.prev = nuevo;
+	Nodo<Alumno> nuevo = new Nodo<>(a);
+	Nodo<Alumno> actual = primero;
+	Nodo<Alumno> anterior = null;
+	// Mientras 'a' sea mayor que el Alumno en actual.
+	while (actual != null && a.compareTo(actual.value) > 0) {
+	    anterior = actual;
+	    actual = actual.next;
+	}
+	if (anterior == null) {
+	    primero = nuevo;
+	} else {
+	    anterior.next = nuevo;
+	    nuevo.prev = anterior;
+	}
+	nuevo.next = actual;
+	if (actual != null)
+	    actual.prev = nuevo;
 
-        if (nuevo.next == null)
-            ultimo = nuevo;
-        items++;
+	if (nuevo.next == null)
+	    ultimo = nuevo;
+	items++;
     }
 
     @Override
     public boolean eliminar(Alumno a) {
-        if (estaVacia() || a == null)
-            return false;
-        // FIXME Utilizar metodo obtener para mejor desempeño.
-        Nodo<Alumno> alumno = recObtener(a, primero, ultimo);
-        if (alumno != null) {
-            if (alumno.prev != null)
-                alumno.prev.next = alumno.next;
-            if (alumno.next != null)
-                alumno.next.prev = alumno.prev;
-            return true;
-        } else
-            // Nodo<Alumno> actual = primero;
-            // // Nodo<Alumno> anterior = null;
-            // while (!a.equals(actual.value)) {
-            // actual = actual.next;
-            // if (actual == null)
-            // return false;
-            // }
-            // if (actual == primero)
-            // primero = actual.next;
-            // else
-            // actual.prev.next = actual.next;
-            // items--;
-            return false;
+	if (estaVacia() || a == null)
+	    return false;
+
+	if (items == 1 && a.equals(primero.value)) {
+	    primero = null;
+	    ultimo = null;
+	    items--;
+	    return true;
+	}
+
+	Nodo<Alumno> alumno = recObtener(a, primero, ultimo);
+	if (alumno != null) {
+	    if (alumno.prev != null)
+		alumno.prev.next = alumno.next;
+	    if (alumno.next != null)
+		alumno.next.prev = alumno.prev;
+
+	    if (alumno == primero)
+		primero = alumno.next;
+	    if (alumno == ultimo)
+		ultimo = alumno.prev;
+	    return true;
+	} else
+	    // Nodo<Alumno> actual = primero;
+	    // // Nodo<Alumno> anterior = null;
+	    // while (!a.equals(actual.value)) {
+	    // actual = actual.next;
+	    // if (actual == null)
+	    // return false;
+	    // }
+	    // if (actual == primero)
+	    // primero = actual.next;
+	    // else
+	    // actual.prev.next = actual.next;
+	    // items--;
+	    return false;
     }
 
     @Override
     public Alumno obtener(String matricula) {
-        Alumno a = new Alumno(null, matricula);
-        return recObtener(a, primero, ultimo).value;
+	Alumno a = new Alumno(null, matricula);
+	return recObtener(a, primero, ultimo).value;
     }
 
     /**
@@ -98,34 +110,34 @@ public class ListaEnlazada implements ListaAlumnos {
      * @return
      */
     private Nodo<Alumno> recObtener(Alumno a, Nodo<Alumno> izq, Nodo<Alumno> der) {
-        Nodo<Alumno> alumno = null;
-        if(izq == der)
-            return alumno;
-        
-        if (a.equals(izq.value)) {
-            alumno = izq;
-        } else if (a.equals(der.value))
-            alumno = der;
-        else if (izq.next == der) {
-            if (a.equals(izq.value))
-                alumno = izq;
-            else if (a.equals(der.value))
-                alumno = der;
-        } else {
-            Nodo<Alumno> centro = center(izq, der);
-            if (centro.value.equals(a))
-                alumno = centro;
-            else if (a.compareTo(centro.value) < 0)
-                alumno = recObtener(a, izq, centro);
-            else if (a.compareTo(centro.value) > 0)
-                alumno = recObtener(a, centro, der);
-        }
-        return alumno;
+	Nodo<Alumno> alumno = null;
+	if (izq == der)
+	    return alumno;
+
+	if (a.equals(izq.value)) {
+	    alumno = izq;
+	} else if (a.equals(der.value))
+	    alumno = der;
+	else if (izq.next == der) {
+	    if (a.equals(izq.value))
+		alumno = izq;
+	    else if (a.equals(der.value))
+		alumno = der;
+	} else {
+	    Nodo<Alumno> centro = center(izq, der);
+	    if (centro.value.equals(a))
+		alumno = centro;
+	    else if (a.compareTo(centro.value) < 0)
+		alumno = recObtener(a, izq, centro);
+	    else if (a.compareTo(centro.value) > 0)
+		alumno = recObtener(a, centro, der);
+	}
+	return alumno;
     }
 
     @Override
     public boolean contiene(Alumno a) {
-        return recObtener(a, primero, ultimo) != null;
+	return recObtener(a, primero, ultimo) != null;
     }
 
     /**
@@ -140,58 +152,58 @@ public class ListaEnlazada implements ListaAlumnos {
      * @return
      */
     private boolean recContiene(Alumno a, Nodo<Alumno> izq, Nodo<Alumno> der) {
-        boolean contiene = false;
-        if (a.equals(izq.value) || a.equals(der.value)) {
-            contiene = true;
-        } else if (izq.next == der) {
-            if (a.equals(izq.value) || a.equals(der.value))
-                contiene = true;
-        } else {
-            Nodo<Alumno> centro = center(izq, der);
-            if (centro.value.equals(a))
-                contiene = true;
-            else if (a.compareTo(centro.value) < 0)
-                contiene = recContiene(a, izq, centro);
-            else if (a.compareTo(centro.value) > 0)
-                contiene = recContiene(a, centro, der);
-        }
-        return contiene;
+	boolean contiene = false;
+	if (a.equals(izq.value) || a.equals(der.value)) {
+	    contiene = true;
+	} else if (izq.next == der) {
+	    if (a.equals(izq.value) || a.equals(der.value))
+		contiene = true;
+	} else {
+	    Nodo<Alumno> centro = center(izq, der);
+	    if (centro.value.equals(a))
+		contiene = true;
+	    else if (a.compareTo(centro.value) < 0)
+		contiene = recContiene(a, izq, centro);
+	    else if (a.compareTo(centro.value) > 0)
+		contiene = recContiene(a, centro, der);
+	}
+	return contiene;
     }
 
     @Override
     public Alumno ultimo() {
-        return ultimo.value;
+	return ultimo.value;
     }
 
     @Override
     public Alumno primero() {
-        return primero.value;
+	return primero.value;
     }
 
     @Override
     public boolean estaVacia() {
-        return items == 0;
+	return items == 0;
     }
 
     @Override
     public int largo() {
-        return items;
+	return items;
     }
 
     @Override
     public Iterator<Alumno> iterator() {
-        return new ListaEnlazadaItr();
+	return new ListaEnlazadaItr();
     }
 
     public void imprimeDesdeUlt() {
-        Nodo<Alumno> actual = ultimo;
-        System.out.print("{ ");
-        while (actual != null) {
-            System.out.print(actual.value);
-            System.out.print(" ");
-            actual = actual.prev;
-        }
-        System.out.print("}");
+	Nodo<Alumno> actual = ultimo;
+	System.out.print("{ ");
+	while (actual != null) {
+	    System.out.print(actual.value);
+	    System.out.print(" ");
+	    actual = actual.prev;
+	}
+	System.out.print("}");
     }
 
     /**
@@ -207,16 +219,16 @@ public class ListaEnlazada implements ListaAlumnos {
      * @return
      */
     private boolean isForward(Nodo<Alumno> base, Nodo<Alumno> target) {
-        if (base.getNext() == target)
-            return true;
+	if (base.getNext() == target)
+	    return true;
 
-        Nodo<Alumno> current = base;
-        while (current != null) {
-            if (current == target)
-                return true;
-            current = current.getNext();
-        }
-        return false;
+	Nodo<Alumno> current = base;
+	while (current != null) {
+	    if (current == target)
+		return true;
+	    current = current.getNext();
+	}
+	return false;
     }
 
     /**
@@ -230,13 +242,13 @@ public class ListaEnlazada implements ListaAlumnos {
      * @return
      */
     private boolean isBackward(Nodo<Alumno> base, Nodo<Alumno> target) {
-        Nodo<Alumno> current = base;
-        while (current != null) {
-            if (current == target)
-                return true;
-            current = current.getPrev();
-        }
-        return false;
+	Nodo<Alumno> current = base;
+	while (current != null) {
+	    if (current == target)
+		return true;
+	    current = current.getPrev();
+	}
+	return false;
     }
 
     /**
@@ -251,24 +263,24 @@ public class ListaEnlazada implements ListaAlumnos {
      * @return
      */
     private Nodo<Alumno> center(Nodo<Alumno> a, Nodo<Alumno> b) {
-        Nodo<Alumno> tempA = a;
-        Nodo<Alumno> tempB = b;
-        if (isForward(a, b)) {
-            while (tempA != tempB) {
-                tempB = tempB.getPrev();
-                if (tempA == tempB)
-                    break;
-                tempA = tempA.getNext();
-            }
-        } else if (isBackward(a, b)) {
-            while (tempA != tempB) {
-                tempA = tempA.getPrev();
-                if (tempA == tempB)
-                    break;
-                tempB = tempB.getNext();
-            }
-        }
-        return tempB;
+	Nodo<Alumno> tempA = a;
+	Nodo<Alumno> tempB = b;
+	if (isForward(a, b)) {
+	    while (tempA != tempB) {
+		tempB = tempB.getPrev();
+		if (tempA == tempB)
+		    break;
+		tempA = tempA.getNext();
+	    }
+	} else if (isBackward(a, b)) {
+	    while (tempA != tempB) {
+		tempA = tempA.getPrev();
+		if (tempA == tempB)
+		    break;
+		tempB = tempB.getNext();
+	    }
+	}
+	return tempB;
     }
 
     /**
@@ -281,32 +293,34 @@ public class ListaEnlazada implements ListaAlumnos {
      */
     protected class ListaEnlazadaItr implements Iterator<Alumno> {
 
-        private boolean first;
-        Nodo<Alumno> actual;
+	private boolean first;
+	Nodo<Alumno> actual;
 
-        public ListaEnlazadaItr() {
-            first = true;
-            actual = primero;
-        }
+	public ListaEnlazadaItr() {
+	    first = true;
+	    actual = primero;
+	}
 
-        @Override
-        public boolean hasNext() {
-            if (first)
-                return true;
-            else
-                return actual.next != null;
-        }
+	@Override
+	public boolean hasNext() {
+	    if (actual == null)
+		return false;
+	    else if (first && actual != null)
+		return true;
+	    else
+		return actual.next != null;
+	}
 
-        @Override
-        public Alumno next() {
-            if (!first)
-                actual = actual.next;
-            first = false;
-            return actual.value;
-        }
+	@Override
+	public Alumno next() {
+	    if (!first)
+		actual = actual.next;
+	    first = false;
+	    return actual.value;
+	}
 
-        @Override
-        public void remove() {
-        }
+	@Override
+	public void remove() {
+	}
     }
 }
