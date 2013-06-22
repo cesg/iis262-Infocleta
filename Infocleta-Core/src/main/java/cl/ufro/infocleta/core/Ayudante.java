@@ -54,6 +54,9 @@ public class Ayudante {
         case "seaglass":
             laf = Laf.SEAGLASS;
             break;
+        case "web":
+            laf = Laf.WEB;
+            break;
         case "sistema":
             if (SystemUtils.IS_OS_LINUX)
                 laf = Laf.SYSTEM_LINUX;

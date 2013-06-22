@@ -151,24 +151,24 @@ public class ListaEnlazada implements ListaAlumnos {
      *            limite derecho
      * @return
      */
-    private boolean recContiene(Alumno a, Nodo<Alumno> izq, Nodo<Alumno> der) {
-	boolean contiene = false;
-	if (a.equals(izq.value) || a.equals(der.value)) {
-	    contiene = true;
-	} else if (izq.next == der) {
-	    if (a.equals(izq.value) || a.equals(der.value))
-		contiene = true;
-	} else {
-	    Nodo<Alumno> centro = center(izq, der);
-	    if (centro.value.equals(a))
-		contiene = true;
-	    else if (a.compareTo(centro.value) < 0)
-		contiene = recContiene(a, izq, centro);
-	    else if (a.compareTo(centro.value) > 0)
-		contiene = recContiene(a, centro, der);
-	}
-	return contiene;
-    }
+//    private boolean recContiene(Alumno a, Nodo<Alumno> izq, Nodo<Alumno> der) {
+//	boolean contiene = false;
+//	if (a.equals(izq.value) || a.equals(der.value)) {
+//	    contiene = true;
+//	} else if (izq.next == der) {
+//	    if (a.equals(izq.value) || a.equals(der.value))
+//		contiene = true;
+//	} else {
+//	    Nodo<Alumno> centro = center(izq, der);
+//	    if (centro.value.equals(a))
+//		contiene = true;
+//	    else if (a.compareTo(centro.value) < 0)
+//		contiene = recContiene(a, izq, centro);
+//	    else if (a.compareTo(centro.value) > 0)
+//		contiene = recContiene(a, centro, der);
+//	}
+//	return contiene;
+//    }
 
     @Override
     public Alumno ultimo() {
