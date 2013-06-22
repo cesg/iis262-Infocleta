@@ -52,7 +52,7 @@ public class InfoFrame {
                 btnAceptarActionPerformed(arg0);
             }
         });
-        btnAceptar.setBounds(26, 200, 98, 24);
+        btnAceptar.setBounds(24, 166, 98, 24);
         frmInformacin.getContentPane().add(btnAceptar);
     }
 
@@ -63,7 +63,7 @@ public class InfoFrame {
         frmInformacin = new JFrame();
         frmInformacin.setTitle("INFORMACIÓN");
         frmInformacin.setResizable(false);
-        frmInformacin.setBounds(100, 100, 450, 293);
+        frmInformacin.setBounds(100, 100, 431, 225);
         frmInformacin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frmInformacin.getContentPane().setLayout(null);
         /* lblInfo */
@@ -76,11 +76,11 @@ public class InfoFrame {
         frmInformacin.getContentPane().add(lblInfoOut);
         /* lblDetalle */
         lblDetalle = new JLabel("DETALLE");
-        lblDetalle.setBounds(26, 61, 70, 20);
+        lblDetalle.setBounds(26, 44, 70, 20);
         frmInformacin.getContentPane().add(lblDetalle);
         /* textArea */
         textArea = new JTextArea();
-        textArea.setBounds(26, 93, 386, 95);
+        textArea.setBounds(26, 76, 386, 78);
         frmInformacin.getContentPane().add(textArea);
     }
 
