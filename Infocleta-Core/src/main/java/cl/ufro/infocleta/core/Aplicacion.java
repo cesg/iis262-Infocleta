@@ -15,8 +15,7 @@ public class Aplicacion {
 
     public static void main(String arg[]) {
         LOG.debug("## Iniciando la aplicacion.");
-        int listaLargo = 10;
-        final ControladorGUI controladorGUI = new SimpleControladorGUI(listaLargo);
+        final ControladorGUI controladorGUI = new SimpleControladorGUI();
         Ayudante.iniciaEstiloVisual();
        MainFrame.iniciar(controladorGUI);
     } 

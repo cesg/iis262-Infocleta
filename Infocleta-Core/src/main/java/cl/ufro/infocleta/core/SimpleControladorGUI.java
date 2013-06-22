@@ -17,7 +17,7 @@ public class SimpleControladorGUI implements ControladorGUI {
             .getLogger(SimpleControladorGUI.class);
     private ListaAlumnos lista;
 
-    public SimpleControladorGUI(int largo) {
+    public SimpleControladorGUI() {
 
         lista = new ListaEnlazada();
     }
