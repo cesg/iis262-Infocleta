@@ -147,24 +147,24 @@ public class MainFrame {
         internalFrame.setResizable(true);
         internalFrame.setBorder(UIManager
                 .getBorder("InternalFrame.paletteBorder"));
-        internalFrame.setBounds(224, 62, 228, 197);
+        internalFrame.setBounds(224, 62, 228, 163);
         frame.getContentPane().add(internalFrame);
         internalFrame.getContentPane().setLayout(null);
         /* lblNombre */
         lblNombre = new JLabel("Nombre");
-        lblNombre.setBounds(12, 24, 55, 20);
+        lblNombre.setBounds(12, 12, 55, 20);
         internalFrame.getContentPane().add(lblNombre);
         /* lblNombreout */
         lblNombreout = new JLabel("");
-        lblNombreout.setBounds(12, 50, 194, 20);
+        lblNombreout.setBounds(12, 32, 194, 20);
         internalFrame.getContentPane().add(lblNombreout);
         /* lblMatricula */
         lblMatricula = new JLabel("Matricula");
-        lblMatricula.setBounds(12, 82, 83, 20);
+        lblMatricula.setBounds(12, 64, 83, 20);
         internalFrame.getContentPane().add(lblMatricula);
         /* lblMatriculaout */
         lblMatriculaout = new JLabel("");
-        lblMatriculaout.setBounds(12, 103, 194, 20);
+        lblMatriculaout.setBounds(12, 83, 194, 20);
         internalFrame.getContentPane().add(lblMatriculaout);
         /* ${component_name} */
         menuBar = new JMenuBar();
