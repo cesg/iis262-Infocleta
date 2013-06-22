@@ -48,9 +48,6 @@ public class Ayudante {
     public static Laf stringToLaf(String prop) {
         Laf laf = Laf.DEFAULT;
         switch (prop) {
-        case "jtattoo":
-            laf = Laf.JTATOO;
-            break;
         case "seaglass":
             laf = Laf.SEAGLASS;
             break;

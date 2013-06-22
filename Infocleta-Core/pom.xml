@@ -146,11 +146,6 @@
 			<version>0.2</version>
 		</dependency>
 		<dependency>
-			<groupId>com.jtattoo</groupId>
-			<artifactId>JTattoo</artifactId>
-			<version>1.6.8</version>
-		</dependency>
-		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>${final.name}-Beans</artifactId>
 			<version>${project.version}</version>
