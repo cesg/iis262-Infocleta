@@ -14,8 +14,6 @@ import org.slf4j.LoggerFactory;
 import cl.ufro.infocleta.beans.Alumno;
 import cl.ufro.infocleta.gui.ControladorGUI;
 import cl.ufro.infocleta.gui.frames.utils.ErrorFrame;
-import cl.ufro.infocleta.gui.frames.utils.InfoFrame;
-
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -61,9 +59,11 @@ public class AgregarFrame {
      */
     private void initialize() {
         frame = new JFrame();
-        frame.setBounds(100, 100, 450, 266);
+        frame.setResizable(false);
+        frame.setBounds(100, 100, 450, 227);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
+        frame.setLocationRelativeTo(null);
 
         JLabel lblMatricula = new JLabel("MATRICULA");
         lblMatricula.setBounds(22, 67, 92, 18);
@@ -89,26 +89,18 @@ public class AgregarFrame {
                 btnAgregarActionPerformed(arg0);
             }
         });
-        btnAgregar.setBounds(173, 174, 98, 24);
+        btnAgregar.setBounds(109, 157, 98, 24);
         frame.getContentPane().add(btnAgregar);
     }
 
     protected void btnAgregarActionPerformed(ActionEvent arg0) {
         String nombre = txtFNombre.getText();
         String matricual = txtFMatricula.getText();
-        if (StringUtils.isNotEmpty(nombre) || StringUtils.isNotEmpty(matricual)) {
+        if (StringUtils.isNotEmpty(nombre) && StringUtils.isNotEmpty(matricual)) {
             Alumno a = new Alumno(nombre, matricual, null, null);
             controlador.agregarAlumno(a);
-            StringBuilder sb = new StringBuilder();
-            sb.append("Nombre: ");
-            sb.append(a.getNombre());
-            sb.append("\n");
-            sb.append("Matricula: ");
-            sb.append(a.getMatricula());
-            InfoFrame.iniciar("Alumno ingresado", sb.toString());
         } else {
             ErrorFrame.iniciar("Valores incorrectos", "Cadena vacia.");
         }
-
     }
 }

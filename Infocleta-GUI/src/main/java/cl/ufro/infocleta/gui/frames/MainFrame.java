@@ -49,6 +49,8 @@ public class MainFrame {
     private JMenuBar menuBar;
     private JMenu mnAyuda;
     private JMenuItem mntmAcerca;
+    private JMenu mnUtilidades;
+    private JMenuItem mntmAgregarCola;
 
     /**
      * Launch the application.
@@ -84,12 +86,14 @@ public class MainFrame {
      */
     private void initialize() {
         frame = new JFrame();
-        frame.setBounds(100, 100, 488, 592);
+        frame.setResizable(false);
+        frame.setBounds(100, 100, 623, 592);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
+        frame.setLocationRelativeTo(null);
 
         JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setBounds(28, 62, 163, 395);
+        scrollPane.setBounds(28, 62, 222, 395);
         frame.getContentPane().add(scrollPane);
 
         list = new JList<>();
@@ -147,7 +151,7 @@ public class MainFrame {
         internalFrame.setResizable(true);
         internalFrame.setBorder(UIManager
                 .getBorder("InternalFrame.paletteBorder"));
-        internalFrame.setBounds(224, 62, 228, 163);
+        internalFrame.setBounds(341, 66, 228, 163);
         frame.getContentPane().add(internalFrame);
         internalFrame.getContentPane().setLayout(null);
         /* lblNombre */
@@ -168,9 +172,15 @@ public class MainFrame {
         internalFrame.getContentPane().add(lblMatriculaout);
         /* ${component_name} */
         menuBar = new JMenuBar();
-        menuBar.setBounds(0, 0, 486, 21);
+        menuBar.setBounds(0, 0, 621, 21);
         frame.getContentPane().add(menuBar);
         /* ${component_name} */
+        /* ${component_name} */
+        mnUtilidades = new JMenu("Utilidades");
+        menuBar.add(mnUtilidades);
+        /* ${component_name} */
+        mntmAgregarCola = new JMenuItem("Agregar Cola");
+        mnUtilidades.add(mntmAgregarCola);
         mnAyuda = new JMenu("Ayuda");
         menuBar.add(mnAyuda);
         /* ${component_name} */
