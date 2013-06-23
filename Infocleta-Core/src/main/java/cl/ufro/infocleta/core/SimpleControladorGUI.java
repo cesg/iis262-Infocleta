@@ -1,5 +1,8 @@
 package cl.ufro.infocleta.core;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,10 +19,12 @@ public class SimpleControladorGUI implements ControladorGUI {
     private static final Logger LOGGER = LoggerFactory
             .getLogger(SimpleControladorGUI.class);
     private ListaAlumnos lista;
+    private Queue<Alumno> cola;
 
     public SimpleControladorGUI() {
 
         lista = new ListaEnlazada();
+        cola = new LinkedList<>();
     }
 
     @Override
@@ -55,6 +60,11 @@ public class SimpleControladorGUI implements ControladorGUI {
     public boolean borrarAlumno(String codigo) {
         // TODO Auto-generated method stub
         return false;
+    }
+
+    @Override
+    public void agregarACola(Alumno a) {
+        cola.add(a);        
     }
 
 }
