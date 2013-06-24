@@ -4,6 +4,7 @@
 package cl.ufro.infocleta.gui.frames;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 
@@ -13,16 +14,21 @@ import org.slf4j.LoggerFactory;
 
 import cl.ufro.infocleta.beans.Alumno;
 import cl.ufro.infocleta.gui.ControladorGUI;
+import cl.ufro.infocleta.gui.UtilidadesGui;
 import cl.ufro.infocleta.gui.frames.utils.ErrorFrame;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JCheckBox;
 
 public class AgregarFrame {
 
+	private Image appIcon;
 	private JFrame frame;
 	private static ControladorGUI controlador;
 	private static final Logger LOGGER = LoggerFactory
@@ -62,7 +68,9 @@ public class AgregarFrame {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		this.appIcon = UtilidadesGui.obtenerAppImg();
 		frame = new JFrame();
+		frame.setIconImage(appIcon);
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 450, 227);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
