@@ -4,6 +4,7 @@
 package cl.ufro.infocleta.gui.frames;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -31,7 +32,7 @@ import cl.ufro.infocleta.gui.ControladorGUI;
 import cl.ufro.infocleta.gui.UtilidadesGui;
 
 public class MainFrame {
-
+	private Image appImage;
 	private JFrame frmInfocleta;
 	private JButton btnAgregar;
 	private JButton btnEliminar;
@@ -96,6 +97,7 @@ public class MainFrame {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		appImage = UtilidadesGui.obtenerAppImg();
 		frmInfocleta = new JFrame();
 		frmInfocleta.addWindowFocusListener(new WindowFocusListener() {
 			public void windowGainedFocus(WindowEvent arg0) {
@@ -111,7 +113,7 @@ public class MainFrame {
 		frmInfocleta.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmInfocleta.getContentPane().setLayout(null);
 		frmInfocleta.setLocationRelativeTo(null);
-		frmInfocleta.setIconImage(UtilidadesGui.obtenerAppImg());
+		frmInfocleta.setIconImage(appImage);
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(28, 62, 222, 395);
 		frmInfocleta.getContentPane().add(scrollPane);

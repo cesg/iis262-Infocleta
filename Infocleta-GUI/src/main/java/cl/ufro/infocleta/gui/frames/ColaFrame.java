@@ -1,6 +1,7 @@
 package cl.ufro.infocleta.gui.frames;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -18,8 +19,11 @@ import org.slf4j.LoggerFactory;
 
 import cl.ufro.infocleta.beans.Alumno;
 import cl.ufro.infocleta.gui.ControladorGUI;
+import cl.ufro.infocleta.gui.UtilidadesGui;
 
 public class ColaFrame {
+	
+	private Image appIcon;
     private static final Logger LOGGER = LoggerFactory
             .getLogger(ColaFrame.class);
     private static ControladorGUI controlador;
@@ -67,6 +71,7 @@ public class ColaFrame {
      * Initialize the contents of the frame.
      */
     private void initialize() {
+    	appIcon = UtilidadesGui.obtenerAppImg();
         frame = new JFrame();
         frame.addWindowFocusListener(new WindowFocusListener() {
         	public void windowGainedFocus(WindowEvent arg0) {
@@ -78,6 +83,7 @@ public class ColaFrame {
         frame.setBounds(100, 100, 355, 428);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().setLayout(null);
+        frame.setIconImage(appIcon);
         /* ${component_name} */
         scrollPane = new JScrollPane();
         scrollPane.setBounds(12, 36, 160, 322);
