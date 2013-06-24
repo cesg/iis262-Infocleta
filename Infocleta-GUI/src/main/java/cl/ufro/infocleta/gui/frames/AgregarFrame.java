@@ -19,88 +19,103 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JCheckBox;
 
 public class AgregarFrame {
 
-    private JFrame frame;
-    private static ControladorGUI controlador;
-    private static final Logger LOGGER = LoggerFactory
-            .getLogger(AgregarFrame.class);
-    private JTextField txtFMatricula;
-    private JTextField txtFNombre;
-    private JButton btnAgregar;
+	private JFrame frame;
+	private static ControladorGUI controlador;
+	private static final Logger LOGGER = LoggerFactory
+	        .getLogger(AgregarFrame.class);
+	private boolean lista;
+	private JTextField txtFMatricula;
+	private JTextField txtFNombre;
+	private JButton btnAgregar;
+	private JCheckBox chckbxMantener;
 
-    /**
-     * Launch the application.
-     */
-    public static void iniciar(ControladorGUI controlador) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    AgregarFrame window = new AgregarFrame();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    LOGGER.error("## Error al iniciar el frame", e);
-                }
-            }
-        });
-        AgregarFrame.controlador = controlador;
-    }
+	/**
+	 * Launch the application.
+	 */
+	public static void iniciar(ControladorGUI controlador, final boolean lista) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AgregarFrame window = new AgregarFrame(lista);
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					LOGGER.error("## Error al iniciar el frame", e);
+				}
+			}
+		});
+		AgregarFrame.controlador = controlador;
+	}
 
-    /**
-     * Create the application.
-     */
-    public AgregarFrame() {
-        initialize();
-    }
+	/**
+	 * Create the application.
+	 */
+	public AgregarFrame(boolean lista) {
+		initialize();
+		this.lista = lista;
+	}
 
-    /**
-     * Initialize the contents of the frame.
-     */
-    private void initialize() {
-        frame = new JFrame();
-        frame.setResizable(false);
-        frame.setBounds(100, 100, 450, 227);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.getContentPane().setLayout(null);
-        frame.setLocationRelativeTo(null);
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setResizable(false);
+		frame.setBounds(100, 100, 450, 227);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		frame.setLocationRelativeTo(null);
 
-        JLabel lblMatricula = new JLabel("MATRICULA");
-        lblMatricula.setBounds(22, 67, 92, 18);
-        frame.getContentPane().add(lblMatricula);
+		JLabel lblMatricula = new JLabel("MATRICULA");
+		lblMatricula.setBounds(22, 67, 92, 18);
+		frame.getContentPane().add(lblMatricula);
 
-        txtFMatricula = new JTextField();
-        txtFMatricula.setBounds(109, 65, 304, 22);
-        frame.getContentPane().add(txtFMatricula);
-        txtFMatricula.setColumns(10);
+		txtFMatricula = new JTextField();
+		txtFMatricula.setBounds(109, 65, 304, 22);
+		frame.getContentPane().add(txtFMatricula);
+		txtFMatricula.setColumns(10);
 
-        JLabel lblNombre = new JLabel("NOMBRE");
-        lblNombre.setBounds(22, 112, 69, 16);
-        frame.getContentPane().add(lblNombre);
+		JLabel lblNombre = new JLabel("NOMBRE");
+		lblNombre.setBounds(22, 112, 69, 16);
+		frame.getContentPane().add(lblNombre);
 
-        txtFNombre = new JTextField();
-        txtFNombre.setBounds(109, 109, 304, 22);
-        frame.getContentPane().add(txtFNombre);
-        txtFNombre.setColumns(10);
-        /* btnAgregar */
-        btnAgregar = new JButton("Agregar");
-        btnAgregar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                btnAgregarActionPerformed(arg0);
-            }
-        });
-        btnAgregar.setBounds(109, 157, 98, 24);
-        frame.getContentPane().add(btnAgregar);
-    }
+		txtFNombre = new JTextField();
+		txtFNombre.setBounds(109, 109, 304, 22);
+		frame.getContentPane().add(txtFNombre);
+		txtFNombre.setColumns(10);
+		/* btnAgregar */
+		btnAgregar = new JButton("Agregar");
+		btnAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btnAgregarActionPerformed(arg0);
+			}
+		});
+		btnAgregar.setBounds(109, 157, 98, 24);
+		frame.getContentPane().add(btnAgregar);
 
-    protected void btnAgregarActionPerformed(ActionEvent arg0) {
-        String nombre = txtFNombre.getText();
-        String matricual = txtFMatricula.getText();
-        if (StringUtils.isNotEmpty(nombre) && StringUtils.isNotEmpty(matricual)) {
-            Alumno a = new Alumno(nombre, matricual, null, null);
-            controlador.agregarAlumno(a);
-        } else {
-            ErrorFrame.iniciar("Valores incorrectos", "Cadena vacia.");
-        }
-    }
+		chckbxMantener = new JCheckBox("Mantener");
+		chckbxMantener.setBounds(301, 158, 92, 22);
+		frame.getContentPane().add(chckbxMantener);
+	}
+
+	protected void btnAgregarActionPerformed(ActionEvent arg0) {
+		String nombre = txtFNombre.getText();
+		String matricual = txtFMatricula.getText();
+		if (StringUtils.isNotEmpty(nombre) && StringUtils.isNotEmpty(matricual)) {
+			Alumno a = new Alumno(nombre, matricual, null, null);
+			if (lista)
+				controlador.agregarAlumno(a);
+			else
+				controlador.agregarACola(a);
+		} else {
+			ErrorFrame.iniciar("Valores incorrectos", "Cadena vacia.");
+		}
+		txtFMatricula.setText(StringUtils.EMPTY);
+		txtFMatricula.setText(StringUtils.EMPTY);
+		if (!chckbxMantener.isSelected())
+			this.frame.dispose();
+	}
 }

@@ -1,5 +1,7 @@
 package cl.ufro.infocleta.gui;
 
+import java.util.Queue;
+
 import cl.ufro.infocleta.beans.Alumno;
 import cl.ufro.infocleta.beans.ListaAlumnos;
 
@@ -83,4 +85,6 @@ public interface ControladorGUI {
      * @param a
      */
     void agregarACola(Alumno a);
+    
+    Queue<Alumno> obtenerAlumnosEnCola();
 }

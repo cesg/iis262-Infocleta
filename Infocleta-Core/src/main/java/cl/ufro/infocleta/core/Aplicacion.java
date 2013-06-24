@@ -8,7 +8,7 @@ import cl.ufro.infocleta.gui.frames.MainFrame;
 
 /**
  *
- * @author kristian
+ * @author c3sg
  */
 public class Aplicacion {
     private static final Logger LOG = LoggerFactory.getLogger(Aplicacion.class);

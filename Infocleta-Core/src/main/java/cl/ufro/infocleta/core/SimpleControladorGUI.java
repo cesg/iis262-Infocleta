@@ -67,4 +67,9 @@ public class SimpleControladorGUI implements ControladorGUI {
         cola.add(a);        
     }
 
+    @Override
+    public Queue<Alumno> obtenerAlumnosEnCola() {
+        return cola;
+    }
+
 }
