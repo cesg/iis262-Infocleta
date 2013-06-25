@@ -5,10 +5,15 @@ package cl.ufro.infocleta.gui.frames;
 
 import java.awt.EventQueue;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,14 +22,7 @@ import cl.ufro.infocleta.gui.ControladorGUI;
 import cl.ufro.infocleta.gui.UtilidadesGui;
 import cl.ufro.infocleta.gui.frames.utils.ErrorFrame;
 
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import javax.swing.JCheckBox;
+import com.google.common.base.Strings;
 
 public class AgregarFrame {
 
@@ -112,7 +110,7 @@ public class AgregarFrame {
 	protected void btnAgregarActionPerformed(ActionEvent arg0) {
 		String nombre = txtFNombre.getText();
 		String matricual = txtFMatricula.getText();
-		if (StringUtils.isNotEmpty(nombre) && StringUtils.isNotEmpty(matricual)) {
+		if (!Strings.isNullOrEmpty(nombre) && !Strings.isNullOrEmpty(matricual)) {
 			Alumno a = new Alumno(nombre, matricual, null, null);
 			if (lista)
 				controlador.agregarAlumno(a);
@@ -121,8 +119,8 @@ public class AgregarFrame {
 		} else {
 			ErrorFrame.iniciar("Valores incorrectos", "Cadena vacia.");
 		}
-		txtFMatricula.setText(StringUtils.EMPTY);
-		txtFMatricula.setText(StringUtils.EMPTY);
+		txtFMatricula.setText("");
+		txtFMatricula.setText("");
 		if (!chckbxMantener.isSelected())
 			this.frame.dispose();
 	}

@@ -15,14 +15,3 @@ enum Laf {
         return value;
     }
 };
-
-enum Llaves {
-    LAF("aplicacion.laf");
-    private String value;
-    private Llaves(String value){
-        this.value = value;
-    }
-    public String toString(){
-        return value;
-    }
-};

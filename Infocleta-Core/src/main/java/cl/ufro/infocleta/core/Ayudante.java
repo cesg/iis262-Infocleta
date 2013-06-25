@@ -3,7 +3,6 @@ package cl.ufro.infocleta.core;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import org.apache.commons.lang.SystemUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -55,9 +54,9 @@ public class Ayudante {
             laf = Laf.WEB;
             break;
         case "sistema":
-            if (SystemUtils.IS_OS_LINUX)
+            if (SISTEMA_OP.startsWith("Linux"))
                 laf = Laf.SYSTEM_LINUX;
-            else if (SystemUtils.IS_OS_WINDOWS)
+            else if (SISTEMA_OP.startsWith("Windows"))
                 laf = Laf.SYSTEM_WINDOWS;
             break;
         default:

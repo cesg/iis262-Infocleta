@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>cl.ufro</groupId>
 		<artifactId>IIS262-Infocleta</artifactId>
-		<version>1.3-2</version>
+		<version>1.3-3</version>
 	</parent>
 	<!-- <groupId>cl.ufro</groupId> -->
 	<artifactId>Infocleta-Core</artifactId>
@@ -149,11 +149,6 @@
 			<groupId>${project.groupId}</groupId>
 			<artifactId>${final.name}-Beans</artifactId>
 			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-configuration</groupId>
-			<artifactId>commons-configuration</artifactId>
-			<version>1.9</version>
 		</dependency>
 		<dependency>
 			<groupId>lookandfeel</groupId>
