@@ -27,41 +27,23 @@ public class Propiedades {
 	private static final String NOMBRE_ARCHIVO = "rc.conf";
 	private static final String KEY_LAF = "aplicacion.laf";
 	private Logger LOG = LoggerFactory.getLogger(Propiedades.class);
-	// private Configuration properties;
 	private Properties prop;
 
 	public Propiedades() {
-		// URL fileUrl = Resources.getResource(NOMBRE_ARCHIVO);
 		FileInputStream file = null;
 		URL root = getClass().getProtectionDomain().getCodeSource()
 		        .getLocation();
 		URL filePath = null;
-		try {
-			filePath = new URL(root, NOMBRE_ARCHIVO);
-		} catch (MalformedURLException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
-		LOG.debug(filePath.getPath());
-		try {
-			file = new FileInputStream(filePath.getPath());
-		} catch (FileNotFoundException e1) {
-			LOG.error("# Error ", e1);
-		}
+
 		prop = new Properties();
 		try {
+			filePath = new URL(root, NOMBRE_ARCHIVO);
 			prop.load(file);
-//			prop.load(this.getClass().getClassLoader().getResourceAsStream(NOMBRE_ARCHIVO));
+			file = new FileInputStream(filePath.getPath());
 			file.close();
 		} catch (IOException e) {
 			LOG.error("# Error al leer el archivo de configuración", e);
 		}
-		// LOG.debug("Opciones cargadas del archivo : {}", fileUrl.toString());
-		// try {
-		// properties = new PropertiesConfiguration(NOMBRE_ARCHIVO);
-		// } catch (ConfigurationException e) {
-		// LOG.error("## Configuracion", e);
-		// }
 	}
 
 	/**
@@ -77,7 +59,6 @@ public class Propiedades {
 		if (prop == null)
 			return laf;
 
-		// String property = properties.getString(Llaves.LAF.toString());
 		String property = prop.getProperty(KEY_LAF);
 
 		if (property == null) {
