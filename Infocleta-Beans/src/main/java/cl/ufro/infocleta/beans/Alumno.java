@@ -1,5 +1,6 @@
 package cl.ufro.infocleta.beans;
 
+
 /**
  * <p>
  * Representa un alumno. Implementa <code>java.lang.Comparable </code> para
@@ -101,7 +102,6 @@ public class Alumno implements Comparable<Alumno> {
     }
 
     public int compareTo(Alumno a) {
-	// int resultado = matricula.compareTo(a.getMatricula());
 	return matricula.compareTo(a.getMatricula());
     }
 }
