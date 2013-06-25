@@ -2,7 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package cl.ufro.infocleta.core;
+package cl.ufro.infocleta.core.conf;
+
+import static cl.ufro.infocleta.core.conf.ConfUtils.stringToLaf;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,7 +24,7 @@ import org.slf4j.LoggerFactory;
  */
 public class Propiedades {
 
-	private static final String NOMBRE_ARCHIVO = "./rc.conf";
+	private static final String NOMBRE_ARCHIVO = "rc.conf";
 	private static final String KEY_LAF = "aplicacion.laf";
 	private Logger LOG = LoggerFactory.getLogger(Propiedades.class);
 	// private Configuration properties;
@@ -49,6 +51,7 @@ public class Propiedades {
 		prop = new Properties();
 		try {
 			prop.load(file);
+//			prop.load(this.getClass().getClassLoader().getResourceAsStream(NOMBRE_ARCHIVO));
 			file.close();
 		} catch (IOException e) {
 			LOG.error("# Error al leer el archivo de configuración", e);
@@ -80,7 +83,7 @@ public class Propiedades {
 		if (property == null) {
 			return laf;
 		}
-		laf = Ayudante.stringToLaf(property);
+		laf = stringToLaf(property);
 		return laf;
 	}
 }

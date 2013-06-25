@@ -3,6 +3,7 @@ package cl.ufro.infocleta.core;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import cl.ufro.infocleta.core.conf.Ayudante;
 import cl.ufro.infocleta.gui.ControladorGUI;
 import cl.ufro.infocleta.gui.frames.MainFrame;
 
