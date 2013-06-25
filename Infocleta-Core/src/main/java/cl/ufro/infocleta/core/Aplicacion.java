@@ -8,16 +8,19 @@ import cl.ufro.infocleta.gui.ControladorGUI;
 import cl.ufro.infocleta.gui.frames.MainFrame;
 
 /**
- *
+ * <p>
+ * Clase principal de Infocleta, aquí se inicia la aplicación.
+ * </p>
+ * 
  * @author c3sg
  */
 public class Aplicacion {
-    private static final Logger LOG = LoggerFactory.getLogger(Aplicacion.class);
+	private static final Logger LOG = LoggerFactory.getLogger(Aplicacion.class);
 
-    public static void main(String arg[]) {
-        LOG.debug("## Iniciando la aplicacion.");
-        final ControladorGUI controladorGUI = new SimpleControladorGUI();
-        Ayudante.iniciaEstiloVisual();
-       MainFrame.iniciar(controladorGUI);
-    } 
+	public static void main(String arg[]) {
+		LOG.debug("## Iniciando la aplicacion.");
+		final ControladorGUI controladorGUI = new SimpleControladorGUI();
+		Ayudante.iniciaEstiloVisual();
+		MainFrame.iniciar(controladorGUI);
+	}
 }

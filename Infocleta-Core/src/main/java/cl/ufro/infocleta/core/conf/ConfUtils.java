@@ -2,7 +2,18 @@ package cl.ufro.infocleta.core.conf;
 
 import org.apache.commons.lang3.SystemUtils;
 
+/**
+ * <p>
+ * Clase con utilitarios para la configuración
+ * </p>
+ * 
+ * @author c3sg
+ * 
+ */
 public class ConfUtils {
+
+	protected ConfUtils() {
+	}
 
 	/**
 	 * <p>

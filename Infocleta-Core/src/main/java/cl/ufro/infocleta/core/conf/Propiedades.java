@@ -16,9 +16,10 @@ import org.slf4j.LoggerFactory;
 
 /**
  * <p>
+ * Se encarga de leer las propiedades establecidas para la aplicación.
  * </p>
  * 
- * @author kristian
+ * @author c3sg
  */
 public class Propiedades {
 
@@ -29,14 +30,15 @@ public class Propiedades {
 
 	public Propiedades() {
 		FileInputStream file = null;
+		URL filePath = null;
 		URL root = getClass().getProtectionDomain().getCodeSource()
 		        .getLocation();
-		URL filePath = null;
+		
 
 		prop = new Properties();
 		try {
 			filePath = new URL(root, NOMBRE_ARCHIVO);
-                        file = new FileInputStream(filePath.getPath());
+			file = new FileInputStream(filePath.getPath());
 			prop.load(file);
 			file.close();
 		} catch (IOException e) {
