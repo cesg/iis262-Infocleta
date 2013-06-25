@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,8 +22,6 @@ import cl.ufro.infocleta.beans.Alumno;
 import cl.ufro.infocleta.gui.ControladorGUI;
 import cl.ufro.infocleta.gui.UtilidadesGui;
 import cl.ufro.infocleta.gui.frames.utils.ErrorFrame;
-
-import com.google.common.base.Strings;
 
 public class AgregarFrame {
 
@@ -110,7 +109,7 @@ public class AgregarFrame {
 	protected void btnAgregarActionPerformed(ActionEvent arg0) {
 		String nombre = txtFNombre.getText();
 		String matricual = txtFMatricula.getText();
-		if (!Strings.isNullOrEmpty(nombre) && !Strings.isNullOrEmpty(matricual)) {
+		if (StringUtils.isNotEmpty(nombre) && StringUtils.isNotEmpty(matricual)) {
 			Alumno a = new Alumno(nombre, matricual, null, null);
 			if (lista)
 				controlador.agregarAlumno(a);
