@@ -36,8 +36,8 @@ public class Propiedades {
 		prop = new Properties();
 		try {
 			filePath = new URL(root, NOMBRE_ARCHIVO);
+                        file = new FileInputStream(filePath.getPath());
 			prop.load(file);
-			file = new FileInputStream(filePath.getPath());
 			file.close();
 		} catch (IOException e) {
 			LOG.error("# Error al leer el archivo de configuración", e);
