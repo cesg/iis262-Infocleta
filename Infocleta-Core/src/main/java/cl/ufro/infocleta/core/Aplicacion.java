@@ -19,7 +19,7 @@ public class Aplicacion {
 
 	public static void main(String arg[]) {
 		LOG.debug("## Iniciando la aplicacion.");
-		final ControladorGUI controladorGUI = new SimpleControladorGUI();
+		final ControladorGUI controladorGUI = new ControladorGUIImp();
 		Ayudante.iniciaEstiloVisual();
 		MainFrame.iniciar(controladorGUI);
 	}
