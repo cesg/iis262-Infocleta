@@ -24,6 +24,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -54,6 +55,10 @@ public class MainFrame {
 	private JMenuItem mntmAcerca;
 	private JMenu mnUtilidades;
 	private JMenuItem mntmAgregarCola;
+	private JLabel labelVersion;
+	private JMenuItem mntmVaciarCola;
+	private JLabel lblAlumnosEnCola;
+	private JLabel lblColaOut;
 
 	/**
 	 * Launch the application.
@@ -77,6 +82,10 @@ public class MainFrame {
 		this.lblMatriculaout.setText(a.getMatricula());
 	}
 
+	private void actualizarCola(){
+		lblColaOut.setText(StringUtils.EMPTY+controlador.alumnosEnCola());
+	}
+	
 	private void actualizarLista() {
 		DefaultListModel<Alumno> model = new DefaultListModel<>();
 		for (Alumno alumno : controlador.todosAlumnos()) {
@@ -108,8 +117,7 @@ public class MainFrame {
 			}
 		});
 		frmInfocleta.setTitle("Infocleta");
-		frmInfocleta.setResizable(false);
-		frmInfocleta.setBounds(100, 100, 623, 592);
+		frmInfocleta.setBounds(100, 100, 623, 580);
 		frmInfocleta.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmInfocleta.getContentPane().setLayout(null);
 		frmInfocleta.setLocationRelativeTo(null);
@@ -173,7 +181,7 @@ public class MainFrame {
 		internalFrame.setResizable(true);
 		internalFrame.setBorder(UIManager
 		        .getBorder("InternalFrame.paletteBorder"));
-		internalFrame.setBounds(341, 66, 228, 163);
+		internalFrame.setBounds(295, 62, 228, 163);
 		frmInfocleta.getContentPane().add(internalFrame);
 		internalFrame.getContentPane().setLayout(null);
 		/* lblNombre */
@@ -207,11 +215,31 @@ public class MainFrame {
 			}
 		});
 		mnUtilidades.add(mntmAgregarCola);
+		
+		mntmVaciarCola = new JMenuItem("Vaciar Cola");
+		mntmVaciarCola.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				mntmVaciarColaActionPerformed(arg0);
+			}
+		});
+		mnUtilidades.add(mntmVaciarCola);
 		mnAyuda = new JMenu("Ayuda");
 		menuBar.add(mnAyuda);
-		/* ${component_name} */
+		/* mntmAcerca*/
 		mntmAcerca = new JMenuItem("Acerca");
 		mnAyuda.add(mntmAcerca);
+		
+		labelVersion = new JLabel("1.3-2");
+		labelVersion.setBounds(554, 528, 55, 14);
+		frmInfocleta.getContentPane().add(labelVersion);
+		
+		lblAlumnosEnCola = new JLabel("Alumnos en cola");
+		lblAlumnosEnCola.setBounds(295, 406, 112, 20);
+		frmInfocleta.getContentPane().add(lblAlumnosEnCola);
+		
+		lblColaOut = new JLabel("0");
+		lblColaOut.setBounds(419, 406, 55, 20);
+		frmInfocleta.getContentPane().add(lblColaOut);
 		internalFrame.setVisible(true);
 	}
 
@@ -251,5 +279,10 @@ public class MainFrame {
 
 	protected void frmInfocletaWindowGainedFocus(WindowEvent arg0) {
 		actualizarLista();
+		actualizarCola();
+	}
+	protected void mntmVaciarColaActionPerformed(ActionEvent arg0) {
+		controlador.vaciarCola();
+		actualizarCola();
 	}
 }
