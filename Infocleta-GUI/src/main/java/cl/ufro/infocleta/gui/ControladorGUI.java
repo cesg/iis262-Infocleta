@@ -87,4 +87,8 @@ public interface ControladorGUI {
     void agregarACola(Alumno a);
     
     Queue<Alumno> obtenerAlumnosEnCola();
+    
+    void vaciarCola();
+    
+    int alumnosEnCola();
 }

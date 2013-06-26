@@ -3,6 +3,8 @@ package cl.ufro.infocleta.core;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,13 +34,21 @@ public class ControladorGUIImp implements ControladorGUI {
 
 	@Override
 	public void agregarAlumno(Alumno a) {
-		LOGGER.debug("Insertando Alumno {}: ", a);
+		ToStringBuilder sb = new ToStringBuilder(a,
+		        ToStringStyle.SHORT_PREFIX_STYLE);
+		sb.append("Matricula", a.getMatricula());
+		sb.append("Nombre", a.getNombre());
+		LOGGER.debug("Insertado {}", sb);
 		lista.insertar(a);
 	}
 
 	@Override
 	public Alumno buscarAlumno(Alumno a) {
-		LOGGER.debug("# Buscando Alumno {}", a);
+		ToStringBuilder sb = new ToStringBuilder(a,
+		        ToStringStyle.SHORT_PREFIX_STYLE);
+		sb.append("Matricula", a.getMatricula());
+		sb.append("Nombre", a.getNombre());
+		LOGGER.debug("# Buscando {}", sb);
 		return lista.obtener(a.getMatricula());
 	}
 
@@ -49,7 +59,11 @@ public class ControladorGUIImp implements ControladorGUI {
 
 	@Override
 	public boolean borrarAlumno(Alumno a) {
-		LOGGER.debug("Eliminando Alumno {}", a);
+		ToStringBuilder sb = new ToStringBuilder(a,
+		        ToStringStyle.SHORT_PREFIX_STYLE);
+		sb.append("Matricula", a.getMatricula());
+		sb.append("Nombre", a.getNombre());
+		LOGGER.debug("Eliminando {}", sb);
 		return lista.eliminar(a);
 	}
 
@@ -73,5 +87,18 @@ public class ControladorGUIImp implements ControladorGUI {
 	public Queue<Alumno> obtenerAlumnosEnCola() {
 		return cola;
 	}
+
+	@Override
+	public void vaciarCola() {
+		for (Alumno alumno : cola) {
+			lista.eliminar(alumno);
+			cola.remove(alumno);
+		}
+	}
+
+	@Override
+    public int alumnosEnCola() {
+	    return cola.size();
+    }
 
 }
