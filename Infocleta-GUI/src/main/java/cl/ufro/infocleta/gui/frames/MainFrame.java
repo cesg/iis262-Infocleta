@@ -229,7 +229,7 @@ public class MainFrame {
 		mntmAcerca = new JMenuItem("Acerca");
 		mnAyuda.add(mntmAcerca);
 		
-		labelVersion = new JLabel("1.3-2");
+		labelVersion = new JLabel("1.3");
 		labelVersion.setBounds(554, 528, 55, 14);
 		frmInfocleta.getContentPane().add(labelVersion);
 		
