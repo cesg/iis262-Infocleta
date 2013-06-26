@@ -12,8 +12,8 @@ public class TestAlumno {
     public void testComparar() {
 	Alumno a = new Alumno("Dummy", "123456-k");
 	Alumno a2 = new Alumno("Dummy2", "123459-9");
-	
-	System.out.println(a.compareTo(a2));
+	int result = a.compareTo(a2);
+	assertTrue(result < 1);
     }
 
 }
