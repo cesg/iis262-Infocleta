@@ -37,11 +37,11 @@ public class TestListaEnlazada {
         System.out.println("testEliminar()");
         ListaEnlazada listaAlumnos = new ListaEnlazada();
         Alumno a = new Alumno("Dummy", "1");
-//        Alumno a2 = new Alumno("Dummy2", "0");
+        Alumno a2 = new Alumno("Dummy2", "0");
 //        Alumno a3 = new Alumno("Dummy3", "2");
 //        Alumno a4 = new Alumno("Dummy2", "6");
         listaAlumnos.insertar(a);
-//        listaAlumnos.insertar(a2);
+        listaAlumnos.insertar(a2);
 //        listaAlumnos.insertar(a3);
 //        listaAlumnos.insertar(a4);
 
@@ -52,6 +52,7 @@ public class TestListaEnlazada {
         System.out.println();
 
         boolean result = listaAlumnos.eliminar(a);
+        listaAlumnos.eliminar(a2);
         assertTrue(result);
         for (Alumno alumno : listaAlumnos) {
             System.out.print(alumno);

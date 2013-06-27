@@ -71,20 +71,11 @@ public class ListaEnlazada implements ListaAlumnos {
 				primero = alumno.next;
 			if (alumno == ultimo)
 				ultimo = alumno.prev;
+			
+			items--;
 			return true;
 		} else
-			// Nodo<Alumno> actual = primero;
-			// // Nodo<Alumno> anterior = null;
-			// while (!a.equals(actual.value)) {
-			// actual = actual.next;
-			// if (actual == null)
-			// return false;
-			// }
-			// if (actual == primero)
-			// primero = actual.next;
-			// else
-			// actual.prev.next = actual.next;
-			items--;
+
 		return false;
 	}
 
