@@ -21,7 +21,7 @@
 	<repositories>
 		<repository>
 			<id>mvn</id>
-			<name>maven local</name>
+			<name>libs</name>
 			<url>file://${project.basedir}/mvn-repository</url>
 			<releases>
 				<enabled>true</enabled>
@@ -126,8 +126,8 @@
 
 					<excludes>
 						<exclude>*.bat</exclude>
-						<exclude>run</exclude>
-						<exclude>Proyecto.conf</exclude>
+						<exclude>*.sh</exclude>
+						<exclude>*.conf</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
