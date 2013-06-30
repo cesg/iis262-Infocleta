@@ -229,7 +229,7 @@ public class MainFrame {
 		mntmAcerca = new JMenuItem("Acerca");
 		mnAyuda.add(mntmAcerca);
 
-		labelVersion = new JLabel("1.4");
+		labelVersion = new JLabel(UtilidadesGui.VERSION);
 		labelVersion.setBounds(554, 528, 55, 14);
 		frmInfocleta.getContentPane().add(labelVersion);
 
@@ -252,7 +252,6 @@ public class MainFrame {
 		if (alumno != null) {
 			mostrarDetalle(alumno);
 		}
-		// AlumnoInfFrame.iniciar(list.getSelectedValue());
 	}
 
 	protected void btnActualizarActionPerformed(ActionEvent arg0) {
@@ -285,5 +284,6 @@ public class MainFrame {
 	protected void mntmVaciarColaActionPerformed(ActionEvent arg0) {
 		controlador.vaciarCola();
 		actualizarLista();
+		actualizarCola();
 	}
 }
