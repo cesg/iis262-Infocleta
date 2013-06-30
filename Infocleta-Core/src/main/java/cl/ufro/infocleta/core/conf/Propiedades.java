@@ -1,14 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package cl.ufro.infocleta.core.conf;
 
 import static cl.ufro.infocleta.core.conf.ConfUtils.stringToLaf;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.URL;
 import java.util.Properties;
 
 import org.slf4j.Logger;
@@ -29,18 +23,9 @@ public class Propiedades {
 	private Properties prop;
 
 	public Propiedades() {
-		FileInputStream file = null;
-		URL filePath = null;
-		URL root = getClass().getProtectionDomain().getCodeSource()
-		        .getLocation();
-		
 
-		prop = new Properties();
 		try {
-			filePath = new URL(root, NOMBRE_ARCHIVO);
-			file = new FileInputStream(filePath.getPath());
-			prop.load(file);
-			file.close();
+			prop = ConfUtils.getProperties(this.getClass(), NOMBRE_ARCHIVO);
 		} catch (IOException e) {
 			LOG.error("# Error al leer el archivo de configuración", e);
 		}

@@ -82,10 +82,10 @@ public class MainFrame {
 		this.lblMatriculaout.setText(a.getMatricula());
 	}
 
-	private void actualizarCola(){
-		lblColaOut.setText(StringUtils.EMPTY+controlador.alumnosEnCola());
+	private void actualizarCola() {
+		lblColaOut.setText(StringUtils.EMPTY + controlador.alumnosEnCola());
 	}
-	
+
 	private void actualizarLista() {
 		DefaultListModel<Alumno> model = new DefaultListModel<>();
 		for (Alumno alumno : controlador.todosAlumnos()) {
@@ -215,7 +215,7 @@ public class MainFrame {
 			}
 		});
 		mnUtilidades.add(mntmAgregarCola);
-		
+
 		mntmVaciarCola = new JMenuItem("Vaciar Cola");
 		mntmVaciarCola.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -225,18 +225,18 @@ public class MainFrame {
 		mnUtilidades.add(mntmVaciarCola);
 		mnAyuda = new JMenu("Ayuda");
 		menuBar.add(mnAyuda);
-		/* mntmAcerca*/
+		/* mntmAcerca */
 		mntmAcerca = new JMenuItem("Acerca");
 		mnAyuda.add(mntmAcerca);
-		
-		labelVersion = new JLabel("1.3");
+
+		labelVersion = new JLabel("1.4");
 		labelVersion.setBounds(554, 528, 55, 14);
 		frmInfocleta.getContentPane().add(labelVersion);
-		
+
 		lblAlumnosEnCola = new JLabel("Alumnos en cola");
 		lblAlumnosEnCola.setBounds(295, 406, 112, 20);
 		frmInfocleta.getContentPane().add(lblAlumnosEnCola);
-		
+
 		lblColaOut = new JLabel("0");
 		lblColaOut.setBounds(419, 406, 55, 20);
 		frmInfocleta.getContentPane().add(lblColaOut);
@@ -281,6 +281,7 @@ public class MainFrame {
 		actualizarLista();
 		actualizarCola();
 	}
+
 	protected void mntmVaciarColaActionPerformed(ActionEvent arg0) {
 		controlador.vaciarCola();
 		actualizarCola();
