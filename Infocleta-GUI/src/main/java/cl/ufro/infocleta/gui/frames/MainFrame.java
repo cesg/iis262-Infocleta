@@ -244,7 +244,7 @@ public class MainFrame {
 	}
 
 	protected void btnAgregarActionPerformed(ActionEvent e) {
-		AgregarFrame.iniciar(controlador, true);
+		AgregarFrame.iniciar(controlador, this);
 	}
 
 	protected void btnDetalleActionPerformed(ActionEvent arg0) {
@@ -284,6 +284,6 @@ public class MainFrame {
 
 	protected void mntmVaciarColaActionPerformed(ActionEvent arg0) {
 		controlador.vaciarCola();
-		actualizarCola();
+		actualizarLista();
 	}
 }

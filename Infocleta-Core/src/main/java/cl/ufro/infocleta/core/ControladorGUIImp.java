@@ -21,7 +21,7 @@ import cl.ufro.infocleta.gui.ControladorGUI;
  * @author c3sg
  */
 public class ControladorGUIImp implements ControladorGUI {
-	private static final Logger LOGGER = LoggerFactory
+	private static final Logger log = LoggerFactory
 	        .getLogger(ControladorGUIImp.class);
 	private ListaAlumnos lista;
 	private Queue<Alumno> cola;
@@ -38,7 +38,7 @@ public class ControladorGUIImp implements ControladorGUI {
 		        ToStringStyle.SHORT_PREFIX_STYLE);
 		sb.append("Matricula", a.getMatricula());
 		sb.append("Nombre", a.getNombre());
-		LOGGER.debug("Insertado {}", sb);
+		log.debug("Insertado {}", sb);
 		lista.insertar(a);
 	}
 
@@ -48,7 +48,7 @@ public class ControladorGUIImp implements ControladorGUI {
 		        ToStringStyle.SHORT_PREFIX_STYLE);
 		sb.append("Matricula", a.getMatricula());
 		sb.append("Nombre", a.getNombre());
-		LOGGER.debug("# Buscando {}", sb);
+		log.debug("# Buscando {}", sb);
 		return lista.obtener(a.getMatricula());
 	}
 
@@ -63,7 +63,7 @@ public class ControladorGUIImp implements ControladorGUI {
 		        ToStringStyle.SHORT_PREFIX_STYLE);
 		sb.append("Matricula", a.getMatricula());
 		sb.append("Nombre", a.getNombre());
-		LOGGER.debug("Eliminando {}", sb);
+		log.debug("Eliminando {}", sb);
 		return lista.eliminar(a);
 	}
 
@@ -90,15 +90,20 @@ public class ControladorGUIImp implements ControladorGUI {
 
 	@Override
 	public void vaciarCola() {
+		log.debug("Vaciando cola, elementos {}", cola.size());
 		for (Alumno alumno : cola) {
-			lista.eliminar(alumno);
+			boolean exists = lista.eliminar(alumno);
+			if (exists)
+				log.debug("Alumno eliminado de la lista  id: {}", alumno);
+			else
+				log.debug("No se encontro al alumno en la lista id: {}", alumno);
 			cola.remove(alumno);
 		}
 	}
 
 	@Override
-    public int alumnosEnCola() {
-	    return cola.size();
-    }
+	public int alumnosEnCola() {
+		return cola.size();
+	}
 
 }

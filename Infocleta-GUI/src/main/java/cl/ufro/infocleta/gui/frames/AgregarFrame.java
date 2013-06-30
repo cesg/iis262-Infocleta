@@ -21,7 +21,6 @@ import org.slf4j.LoggerFactory;
 import cl.ufro.infocleta.beans.Alumno;
 import cl.ufro.infocleta.gui.ControladorGUI;
 import cl.ufro.infocleta.gui.UtilidadesGui;
-import cl.ufro.infocleta.gui.frames.utils.ErrorFrame;
 
 public class AgregarFrame {
 
@@ -30,7 +29,6 @@ public class AgregarFrame {
 	private static ControladorGUI controlador;
 	private static final Logger LOGGER = LoggerFactory
 	        .getLogger(AgregarFrame.class);
-	private boolean lista;
 	private JTextField txtFMatricula;
 	private JTextField txtFNombre;
 	private JButton btnAgregar;
@@ -39,11 +37,11 @@ public class AgregarFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void iniciar(ControladorGUI controlador, final boolean lista) {
+	public static void iniciar(ControladorGUI controlador, final Object sender) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AgregarFrame window = new AgregarFrame(lista);
+					AgregarFrame window = new AgregarFrame(sender);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					LOGGER.error("## Error al iniciar el frame", e);
@@ -56,9 +54,11 @@ public class AgregarFrame {
 	/**
 	 * Create the application.
 	 */
-	public AgregarFrame(boolean lista) {
+	public AgregarFrame(Object sender) {
 		initialize();
-		this.lista = lista;
+		if (sender instanceof ColaFrame) {
+			this.txtFNombre.setEnabled(false);
+		}
 	}
 
 	/**
@@ -109,14 +109,15 @@ public class AgregarFrame {
 	protected void btnAgregarActionPerformed(ActionEvent arg0) {
 		String nombre = txtFNombre.getText();
 		String matricual = txtFMatricula.getText();
-		if (StringUtils.isNotEmpty(nombre) && StringUtils.isNotEmpty(matricual)) {
+		if (this.txtFNombre.isEnabled() && StringUtils.isNotEmpty(nombre)
+		        && StringUtils.isNotEmpty(matricual)) {
 			Alumno a = new Alumno(nombre, matricual, null, null);
-			if (lista)
-				controlador.agregarAlumno(a);
-			else
-				controlador.agregarACola(a);
-		} else {
-			ErrorFrame.iniciar("Valores incorrectos", "Cadena vacia.");
+			controlador.agregarAlumno(a);
+
+		} else if (!this.txtFNombre.isEnabled()
+		        && StringUtils.isNotEmpty(matricual)) {
+			Alumno a = new Alumno(null, matricual, null, null);
+			controlador.agregarACola(a);
 		}
 		txtFMatricula.setText("");
 		txtFMatricula.setText("");
