@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import cl.ufro.infocleta.core.conf.Ayudante;
 import cl.ufro.infocleta.gui.ControladorGUI;
-import cl.ufro.infocleta.gui.frames.MainFrame;
+import cl.ufro.infocleta.gui.frames.InicioFrame;
 
 /**
  * <p>
@@ -21,6 +21,6 @@ public class Aplicacion {
 		LOG.debug("## Iniciando la aplicacion.");
 		final ControladorGUI controladorGUI = new ControladorGUIImp();
 		Ayudante.iniciaEstiloVisual();
-		MainFrame.iniciar(controladorGUI);
+		new Thread(new InicioFrame(controladorGUI)).start();
 	}
 }
