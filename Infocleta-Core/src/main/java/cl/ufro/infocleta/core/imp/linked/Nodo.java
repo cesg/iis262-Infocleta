@@ -4,45 +4,47 @@ public class Nodo<T extends Comparable<T>> {
     protected T value;
     protected Nodo<T> prev;
     protected Nodo<T> next;
-    
-    public Nodo (T value){
+
+    public Nodo(T value) {
 	this.value = value;
     }
-    
-    public T getValue(){
+
+    public T getValue() {
 	return value;
     }
-    
-    public String toString(){
-	return ""+value;
+
+    public String toString() {
+	return "" + value;
     }
 
     /**
      * @return the prev
      */
-    public  Nodo<T> getPrev() {
-        return prev;
+    public Nodo<T> getPrev() {
+	return prev;
     }
 
     /**
-     * @param prev the prev to set
+     * @param prev
+     *            the prev to set
      */
     public final void setPrev(Nodo<T> prev) {
-        this.prev = prev;
+	this.prev = prev;
     }
 
     /**
      * @return the next
      */
     public final Nodo<T> getNext() {
-        return next;
+	return next;
     }
 
     /**
-     * @param next the next to set
+     * @param next
+     *            the next to set
      */
     public final void setNext(Nodo<T> next) {
-        this.next = next;
+	this.next = next;
     }
-    
+
 }

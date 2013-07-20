@@ -15,12 +15,12 @@ import cl.ufro.infocleta.gui.frames.InicioFrame;
  * @author c3sg
  */
 public class Aplicacion {
-	private static final Logger LOG = LoggerFactory.getLogger(Aplicacion.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Aplicacion.class);
 
-	public static void main(String arg[]) {
-		LOG.debug("## Iniciando la aplicacion.");
-		final ControladorGUI controladorGUI = new ControladorGUIImp();
-		Ayudante.iniciaEstiloVisual();
-		new Thread(new InicioFrame(controladorGUI)).start();
-	}
+    public static void main(String arg[]) {
+	LOG.debug("## Iniciando la aplicacion.");
+	final ControladorGUI controladorGUI = new ControladorGUIImp();
+	Ayudante.iniciaEstiloVisual();
+	new Thread(new InicioFrame(controladorGUI)).start();
+    }
 }

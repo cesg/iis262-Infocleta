@@ -17,39 +17,39 @@ import org.slf4j.LoggerFactory;
  */
 public class Propiedades {
 
-	private static final String NOMBRE_ARCHIVO = "rc.conf";
-	private static final String KEY_LAF = "aplicacion.laf";
-	private Logger LOG = LoggerFactory.getLogger(Propiedades.class);
-	private Properties prop;
+    private static final String NOMBRE_ARCHIVO = "rc.conf";
+    private static final String KEY_LAF = "aplicacion.laf";
+    private Logger LOG = LoggerFactory.getLogger(Propiedades.class);
+    private Properties prop;
 
-	public Propiedades() {
+    public Propiedades() {
 
-		try {
-			prop = ConfUtils.getProperties(this.getClass(), NOMBRE_ARCHIVO);
-		} catch (IOException e) {
-			LOG.error("# Error al leer el archivo de configuración", e);
-		}
+	try {
+	    prop = ConfUtils.getProperties(this.getClass(), NOMBRE_ARCHIVO);
+	} catch (IOException e) {
+	    LOG.error("# Error al leer el archivo de configuración", e);
 	}
+    }
 
-	/**
-	 * <p>
-	 * Obtiene el <code>LookAndFeel</code> establecido en las propiedades.
-	 * </p>
-	 * <b>LAF getLookAndFeel()</b>
-	 * 
-	 * @return
-	 */
-	public Laf getLookAndFeel() {
-		Laf laf = Laf.SYSTEM;
-		if (prop == null)
-			return laf;
+    /**
+     * <p>
+     * Obtiene el <code>LookAndFeel</code> establecido en las propiedades.
+     * </p>
+     * <b>LAF getLookAndFeel()</b>
+     * 
+     * @return
+     */
+    public Laf getLookAndFeel() {
+	Laf laf = Laf.SYSTEM;
+	if (prop == null)
+	    return laf;
 
-		String property = prop.getProperty(KEY_LAF);
+	String property = prop.getProperty(KEY_LAF);
 
-		if (property == null) {
-			return laf;
-		}
-		laf = stringToLaf(property);
-		return laf;
+	if (property == null) {
+	    return laf;
 	}
+	laf = stringToLaf(property);
+	return laf;
+    }
 }

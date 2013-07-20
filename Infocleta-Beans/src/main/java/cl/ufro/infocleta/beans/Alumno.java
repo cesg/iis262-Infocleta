@@ -12,9 +12,11 @@ public class Alumno implements Comparable<Alumno> {
 
 	private String nombre;
 	private String matricula;
-	private String apellidoPaterno;
-	private String apellidoMaterno;
+//	private String apellidoPaterno;
+//	private String apellidoMaterno;
 
+	public Alumno(){}
+	
 	/**
 	 * Nuevo alumno solo con su nombre y matricula.
 	 * 
@@ -30,8 +32,8 @@ public class Alumno implements Comparable<Alumno> {
 	        String apellidoPaterno) {
 		this.nombre = nombre;
 		this.matricula = matricula;
-		this.apellidoMaterno = apellidoMaterno;
-		this.apellidoPaterno = apellidoPaterno;
+//		this.apellidoMaterno = apellidoMaterno;
+//		this.apellidoPaterno = apellidoPaterno;
 	}
 
 	public String getNombre() {
@@ -42,13 +44,13 @@ public class Alumno implements Comparable<Alumno> {
 		return matricula;
 	}
 
-	public String getApellidoPaterno() {
-		return apellidoPaterno;
-	}
+//	public String getApellidoPaterno() {
+//		return apellidoPaterno;
+//	}
 
-	public String getApellidoMaterno() {
-		return apellidoMaterno;
-	}
+//	public String getApellidoMaterno() {
+//		return apellidoMaterno;
+//	}
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -58,13 +60,13 @@ public class Alumno implements Comparable<Alumno> {
 		this.matricula = matricula;
 	}
 
-	public void setApellidoPaterno(String apellidoPaterno) {
-		this.apellidoPaterno = apellidoPaterno;
-	}
+//	public void setApellidoPaterno(String apellidoPaterno) {
+//		this.apellidoPaterno = apellidoPaterno;
+//	}
 
-	public void setApellidoMaterno(String apellidoMaterno) {
-		this.apellidoMaterno = apellidoMaterno;
-	}
+//	public void setApellidoMaterno(String apellidoMaterno) {
+//		this.apellidoMaterno = apellidoMaterno;
+//	}
 
 	@Override
 	public int hashCode() {
