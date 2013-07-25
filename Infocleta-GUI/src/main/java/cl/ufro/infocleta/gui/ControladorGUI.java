@@ -13,6 +13,8 @@ import cl.ufro.infocleta.beans.ListaAlumnos;
  */
 public interface ControladorGUI {
 
+    public void cerrarAplicacion();
+    
     /**
      * <p>
      * Agrega un alumno

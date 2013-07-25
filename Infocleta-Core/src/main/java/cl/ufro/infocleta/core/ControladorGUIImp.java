@@ -28,15 +28,23 @@ public class ControladorGUIImp implements ControladorGUI {
     private ListaAlumnos lista;
     private Queue<Alumno> cola;
     private DataManager db;
-    private boolean primer;
 
     public ControladorGUIImp() {
 	db = new DataManager();
 	lista = new ListaEnlazada();
 	cola = new LinkedList<>();
-	primer = true;
+//	primer = true;
+	alumnosDB();
     }
 
+    private void alumnosDB(){
+	List<Alumno> alumnosDB = db.obtenerTodos();
+	    if (!alumnosDB.isEmpty())
+		for (Alumno alumno : alumnosDB) {
+		    lista.insertar(alumno);
+		}
+    }
+    
     @Override
     public void agregarAlumno(Alumno a) {
 	ToStringBuilder sb = new ToStringBuilder(a,
@@ -59,14 +67,6 @@ public class ControladorGUIImp implements ControladorGUI {
 
     @Override
     public ListaAlumnos todosAlumnos() {
-	if (primer) {
-	    List<Alumno> alumnosDB = db.obtenerTodos();
-	    if (!alumnosDB.isEmpty())
-		for (Alumno alumno : alumnosDB) {
-		    lista.insertar(alumno);
-		}
-	}
-	primer = false;
 	return lista;
     }
 
@@ -125,5 +125,21 @@ public class ControladorGUIImp implements ControladorGUI {
 	for (Alumno alumno : l) {
 	    lista.insertar(alumno);
 	}
+    }
+
+    @Override
+    public void cerrarAplicacion() {
+	log.debug("# Guardando lista..");
+	if(!lista.estaVacia()){
+	    List<Alumno> alumnosDB = db.obtenerTodos();
+	    for (Alumno alumno : lista) {
+		if(!alumnosDB.contains(alumno))
+		    db.insertar(alumno);
+            }
+	}
+	System.exit(0);
+    }
+    
+    private void actualizarDB(){
     }
 }

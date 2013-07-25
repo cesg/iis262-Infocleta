@@ -31,6 +31,7 @@ import org.slf4j.LoggerFactory;
 import cl.ufro.infocleta.beans.Alumno;
 import cl.ufro.infocleta.gui.ControladorGUI;
 import cl.ufro.infocleta.gui.UtilidadesGui;
+import java.awt.event.WindowAdapter;
 
 public class MainFrame {
 	private Image appImage;
@@ -108,6 +109,12 @@ public class MainFrame {
 	private void initialize() {
 		appImage = UtilidadesGui.obtenerAppImg();
 		frmInfocleta = new JFrame();
+		frmInfocleta.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				frmInfocletaWindowClosing(e);
+			}
+		});
 		frmInfocleta.addWindowFocusListener(new WindowFocusListener() {
 			public void windowGainedFocus(WindowEvent arg0) {
 				frmInfocletaWindowGainedFocus(arg0);
@@ -285,5 +292,8 @@ public class MainFrame {
 		controlador.vaciarCola();
 		actualizarLista();
 		actualizarCola();
+	}
+	protected void frmInfocletaWindowClosing(WindowEvent e) {
+	    controlador.cerrarAplicacion();
 	}
 }
