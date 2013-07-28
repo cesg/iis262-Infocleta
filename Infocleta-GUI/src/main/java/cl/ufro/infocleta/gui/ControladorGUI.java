@@ -14,7 +14,7 @@ import cl.ufro.infocleta.beans.ListaAlumnos;
 public interface ControladorGUI {
 
     public void cerrarAplicacion();
-    
+
     /**
      * <p>
      * Agrega un alumno
@@ -87,10 +87,10 @@ public interface ControladorGUI {
      * @param a
      */
     void agregarACola(Alumno a);
-    
+
     Queue<Alumno> obtenerAlumnosEnCola();
-    
+
     void vaciarCola();
-    
+
     int alumnosEnCola();
 }

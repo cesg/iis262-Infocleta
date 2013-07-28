@@ -18,7 +18,7 @@ public class Aplicacion {
     private static final Logger LOG = LoggerFactory.getLogger(Aplicacion.class);
 
     public static void main(String arg[]) {
-	LOG.debug("## Iniciando la aplicacion.");
+	LOG.debug("## Iniciando Infocleta.");
 	final ControladorGUI controladorGUI = new ControladorGUIImp();
 	Ayudante.iniciaEstiloVisual();
 	new Thread(new InicioFrame(controladorGUI)).start();

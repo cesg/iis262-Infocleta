@@ -25,66 +25,66 @@ public class InfoFrame {
      * Launch the application.
      */
     public static void iniciar(final String info, final String detalle) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    InfoFrame window = new InfoFrame(info, detalle);
-                    window.frmInformacin.setVisible(true);
-                } catch (Exception e) {
-                    LOGGER.error("# Error al iniciar el frame", e);
-                }
-            }
-        });
+	EventQueue.invokeLater(new Runnable() {
+	    public void run() {
+		try {
+		    InfoFrame window = new InfoFrame(info, detalle);
+		    window.frmInformacin.setVisible(true);
+		} catch (Exception e) {
+		    LOGGER.error("# Error al iniciar el frame", e);
+		}
+	    }
+	});
     }
 
     /**
      * Create the application.
      */
     protected InfoFrame(String info, String detalle) {
-        initialize();
-        frmInformacin.setLocationRelativeTo(null);
-        this.lblInfoOut.setText(info);
-        this.textArea.setText(detalle);
-        /* ${component_name} */
-        btnAceptar = new JButton("Aceptar");
-        btnAceptar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                btnAceptarActionPerformed(arg0);
-            }
-        });
-        btnAceptar.setBounds(24, 166, 98, 24);
-        frmInformacin.getContentPane().add(btnAceptar);
+	initialize();
+	frmInformacin.setLocationRelativeTo(null);
+	this.lblInfoOut.setText(info);
+	this.textArea.setText(detalle);
+	/* ${component_name} */
+	btnAceptar = new JButton("Aceptar");
+	btnAceptar.addActionListener(new ActionListener() {
+	    public void actionPerformed(ActionEvent arg0) {
+		btnAceptarActionPerformed(arg0);
+	    }
+	});
+	btnAceptar.setBounds(24, 166, 98, 24);
+	frmInformacin.getContentPane().add(btnAceptar);
     }
 
     /**
      * Initialize the contents of the frame.
      */
     private void initialize() {
-        frmInformacin = new JFrame();
-        frmInformacin.setTitle("INFORMACIÓN");
-        frmInformacin.setResizable(false);
-        frmInformacin.setBounds(100, 100, 431, 225);
-        frmInformacin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frmInformacin.getContentPane().setLayout(null);
-        /* lblInfo */
-        lblInfo = new JLabel("INFO");
-        lblInfo.setBounds(26, 12, 55, 20);
-        frmInformacin.getContentPane().add(lblInfo);
-        /* lblInfoOut */
-        lblInfoOut = new JLabel("");
-        lblInfoOut.setBounds(100, 12, 323, 20);
-        frmInformacin.getContentPane().add(lblInfoOut);
-        /* lblDetalle */
-        lblDetalle = new JLabel("DETALLE");
-        lblDetalle.setBounds(26, 44, 70, 20);
-        frmInformacin.getContentPane().add(lblDetalle);
-        /* textArea */
-        textArea = new JTextArea();
-        textArea.setBounds(26, 76, 386, 78);
-        frmInformacin.getContentPane().add(textArea);
+	frmInformacin = new JFrame();
+	frmInformacin.setTitle("INFORMACIÓN");
+	frmInformacin.setResizable(false);
+	frmInformacin.setBounds(100, 100, 431, 225);
+	frmInformacin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	frmInformacin.getContentPane().setLayout(null);
+	/* lblInfo */
+	lblInfo = new JLabel("INFO");
+	lblInfo.setBounds(26, 12, 55, 20);
+	frmInformacin.getContentPane().add(lblInfo);
+	/* lblInfoOut */
+	lblInfoOut = new JLabel("");
+	lblInfoOut.setBounds(100, 12, 323, 20);
+	frmInformacin.getContentPane().add(lblInfoOut);
+	/* lblDetalle */
+	lblDetalle = new JLabel("DETALLE");
+	lblDetalle.setBounds(26, 44, 70, 20);
+	frmInformacin.getContentPane().add(lblDetalle);
+	/* textArea */
+	textArea = new JTextArea();
+	textArea.setBounds(26, 76, 386, 78);
+	frmInformacin.getContentPane().add(textArea);
     }
 
     protected void btnAceptarActionPerformed(ActionEvent arg0) {
-        this.frmInformacin.dispose();
+	this.frmInformacin.dispose();
     }
 }

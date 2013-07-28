@@ -23,103 +23,103 @@ import cl.ufro.infocleta.gui.UtilidadesGui;
 
 public class ColaFrame {
 
-	private Image appIcon;
-	private static final Logger LOGGER = LoggerFactory
-	        .getLogger(ColaFrame.class);
-	private static ControladorGUI controlador;
-	private JFrame frame;
-	private JList<Alumno> list;
-	private JButton btnAgregar;
-	private JButton btnFinalizar;
-	private JScrollPane scrollPane;
+    private Image appIcon;
+    private static final Logger LOGGER = LoggerFactory
+	    .getLogger(ColaFrame.class);
+    private static ControladorGUI controlador;
+    private JFrame frame;
+    private JList<Alumno> list;
+    private JButton btnAgregar;
+    private JButton btnFinalizar;
+    private JScrollPane scrollPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void iniciar(final ControladorGUI controlador) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ColaFrame window = new ColaFrame();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					LOGGER.error("# Error al inciar el frame.", e);
-				}
-			}
-		});
-		ColaFrame.controlador = controlador;
-	}
-
-	private void actualizarLista() {
-		DefaultListModel<Alumno> model = new DefaultListModel<>();
-		Queue<Alumno> alumnos = controlador.obtenerAlumnosEnCola();
-		for (Alumno alumno : alumnos) {
-			model.addElement(alumno);
+    /**
+     * Launch the application.
+     */
+    public static void iniciar(final ControladorGUI controlador) {
+	EventQueue.invokeLater(new Runnable() {
+	    public void run() {
+		try {
+		    ColaFrame window = new ColaFrame();
+		    window.frame.setVisible(true);
+		} catch (Exception e) {
+		    LOGGER.error("# Error al inciar el frame.", e);
 		}
-		this.list.setModel(model);
-		this.list.validate();
-	}
+	    }
+	});
+	ColaFrame.controlador = controlador;
+    }
 
-	/**
-	 * Create the application.
-	 */
-	public ColaFrame() {
-		initialize();
+    private void actualizarLista() {
+	DefaultListModel<Alumno> model = new DefaultListModel<>();
+	Queue<Alumno> alumnos = controlador.obtenerAlumnosEnCola();
+	for (Alumno alumno : alumnos) {
+	    model.addElement(alumno);
 	}
+	this.list.setModel(model);
+	this.list.validate();
+    }
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		appIcon = UtilidadesGui.obtenerAppImg();
-		frame = new JFrame();
-		frame.addWindowFocusListener(new WindowFocusListener() {
-			public void windowGainedFocus(WindowEvent arg0) {
-				frameWindowGainedFocus(arg0);
-			}
+    /**
+     * Create the application.
+     */
+    public ColaFrame() {
+	initialize();
+    }
 
-			public void windowLostFocus(WindowEvent arg0) {
-			}
-		});
-		frame.setBounds(100, 100, 355, 428);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		frame.setIconImage(appIcon);
-		/* scrollPane */
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(12, 36, 160, 322);
-		frame.getContentPane().add(scrollPane);
-		list = new JList<Alumno>();
-		scrollPane.setViewportView(list);
-		/* btnAgregar */
-		btnAgregar = new JButton("Agregar");
-		btnAgregar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				btnAgregarActionPerformed(e);
-			}
-		});
-		btnAgregar.setBounds(184, 282, 98, 24);
-		frame.getContentPane().add(btnAgregar);
-		/* btnFinalizar */
-		btnFinalizar = new JButton("Finalizar");
-		btnFinalizar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				btnFinalizarActionPerformed(e);
-			}
-		});
-		btnFinalizar.setBounds(184, 333, 98, 24);
-		frame.getContentPane().add(btnFinalizar);
-	}
+    /**
+     * Initialize the contents of the frame.
+     */
+    private void initialize() {
+	appIcon = UtilidadesGui.obtenerAppImg();
+	frame = new JFrame();
+	frame.addWindowFocusListener(new WindowFocusListener() {
+	    public void windowGainedFocus(WindowEvent arg0) {
+		frameWindowGainedFocus(arg0);
+	    }
 
-	protected void btnAgregarActionPerformed(ActionEvent e) {
-		AgregarFrame.iniciar(controlador, this);
-	}
+	    public void windowLostFocus(WindowEvent arg0) {
+	    }
+	});
+	frame.setBounds(100, 100, 355, 428);
+	frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+	frame.getContentPane().setLayout(null);
+	frame.setIconImage(appIcon);
+	/* scrollPane */
+	scrollPane = new JScrollPane();
+	scrollPane.setBounds(12, 36, 160, 322);
+	frame.getContentPane().add(scrollPane);
+	list = new JList<Alumno>();
+	scrollPane.setViewportView(list);
+	/* btnAgregar */
+	btnAgregar = new JButton("Agregar");
+	btnAgregar.addActionListener(new ActionListener() {
+	    public void actionPerformed(ActionEvent e) {
+		btnAgregarActionPerformed(e);
+	    }
+	});
+	btnAgregar.setBounds(184, 282, 98, 24);
+	frame.getContentPane().add(btnAgregar);
+	/* btnFinalizar */
+	btnFinalizar = new JButton("Finalizar");
+	btnFinalizar.addActionListener(new ActionListener() {
+	    public void actionPerformed(ActionEvent e) {
+		btnFinalizarActionPerformed(e);
+	    }
+	});
+	btnFinalizar.setBounds(184, 333, 98, 24);
+	frame.getContentPane().add(btnFinalizar);
+    }
 
-	protected void btnFinalizarActionPerformed(ActionEvent e) {
-		this.frame.dispose();
-	}
+    protected void btnAgregarActionPerformed(ActionEvent e) {
+	AgregarFrame.iniciar(controlador, this);
+    }
 
-	protected void frameWindowGainedFocus(WindowEvent arg0) {
-		actualizarLista();
-	}
+    protected void btnFinalizarActionPerformed(ActionEvent e) {
+	this.frame.dispose();
+    }
+
+    protected void frameWindowGainedFocus(WindowEvent arg0) {
+	actualizarLista();
+    }
 }

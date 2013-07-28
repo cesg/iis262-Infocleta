@@ -23,7 +23,7 @@ import cl.ufro.infocleta.gui.ControladorGUI;
  * @author c3sg
  */
 public class ControladorGUIImp implements ControladorGUI {
-    private static final Logger log = LoggerFactory
+    private static final Logger LOG = LoggerFactory
 	    .getLogger(ControladorGUIImp.class);
     private ListaAlumnos lista;
     private Queue<Alumno> cola;
@@ -33,25 +33,25 @@ public class ControladorGUIImp implements ControladorGUI {
 	db = new DataManager();
 	lista = new ListaEnlazada();
 	cola = new LinkedList<>();
-//	primer = true;
+	// primer = true;
 	alumnosDB();
     }
 
-    private void alumnosDB(){
+    private void alumnosDB() {
 	List<Alumno> alumnosDB = db.obtenerTodos();
-	    if (!alumnosDB.isEmpty())
-		for (Alumno alumno : alumnosDB) {
-		    lista.insertar(alumno);
-		}
+	if (!alumnosDB.isEmpty())
+	    for (Alumno alumno : alumnosDB) {
+		lista.insertar(alumno);
+	    }
     }
-    
+
     @Override
     public void agregarAlumno(Alumno a) {
 	ToStringBuilder sb = new ToStringBuilder(a,
 	        ToStringStyle.SHORT_PREFIX_STYLE);
 	sb.append("Matricula", a.getMatricula());
 	sb.append("Nombre", a.getNombre());
-	log.debug("Insertado {}", sb);
+	LOG.debug("Insertado {}", sb);
 	lista.insertar(a);
     }
 
@@ -61,7 +61,7 @@ public class ControladorGUIImp implements ControladorGUI {
 	        ToStringStyle.SHORT_PREFIX_STYLE);
 	sb.append("Matricula", a.getMatricula());
 	sb.append("Nombre", a.getNombre());
-	log.debug("# Buscando {}", sb);
+	LOG.debug("# Buscando {}", sb);
 	return lista.obtener(a.getMatricula());
     }
 
@@ -76,7 +76,7 @@ public class ControladorGUIImp implements ControladorGUI {
 	        ToStringStyle.SHORT_PREFIX_STYLE);
 	sb.append("Matricula", a.getMatricula());
 	sb.append("Nombre", a.getNombre());
-	log.debug("Eliminando {}", sb);
+	LOG.debug("Eliminando {}", sb);
 	db.borrar(a);
 	return lista.eliminar(a);
     }
@@ -95,6 +95,7 @@ public class ControladorGUIImp implements ControladorGUI {
     @Override
     public void agregarACola(Alumno a) {
 	cola.add(a);
+	LOG.debug("Alumno agregado a la cola: {}", a);
     }
 
     @Override
@@ -104,15 +105,17 @@ public class ControladorGUIImp implements ControladorGUI {
 
     @Override
     public void vaciarCola() {
-	log.debug("Vaciando cola, elementos {}", cola.size());
+	LOG.debug("Vaciando cola, elementos {}", cola.size());
 	for (Alumno alumno : cola) {
 	    boolean exists = lista.eliminar(alumno);
-	    if (exists)
-		log.debug("Alumno eliminado de la lista  id: {}", alumno);
-	    else
-		log.debug("No se encontro al alumno en la lista id: {}", alumno);
-	    cola.remove(alumno);
+	    if (exists) {
+		LOG.debug("Alumno eliminado de la lista  id: {}", alumno);
+		cola.remove(alumno);
+	    } else
+		LOG.debug("No se encontro al alumno en la lista id: {}", alumno);
+
 	}
+	cola.clear();
     }
 
     @Override
@@ -129,17 +132,14 @@ public class ControladorGUIImp implements ControladorGUI {
 
     @Override
     public void cerrarAplicacion() {
-	log.debug("# Guardando lista..");
-	if(!lista.estaVacia()){
+	LOG.debug("# Guardando lista..");
+	if (!lista.estaVacia()) {
 	    List<Alumno> alumnosDB = db.obtenerTodos();
 	    for (Alumno alumno : lista) {
-		if(!alumnosDB.contains(alumno))
+		if (!alumnosDB.contains(alumno))
 		    db.insertar(alumno);
-            }
+	    }
 	}
 	System.exit(0);
-    }
-    
-    private void actualizarDB(){
     }
 }
