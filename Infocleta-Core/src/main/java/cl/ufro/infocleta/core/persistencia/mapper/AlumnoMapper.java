@@ -1,4 +1,4 @@
-package cl.ufro.infocleta.core.data.mapper;
+package cl.ufro.infocleta.core.persistencia.mapper;
 
 import java.util.List;
 

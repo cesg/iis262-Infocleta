@@ -1,4 +1,4 @@
-package cl.ufro.infocleta.core.data;
+package cl.ufro.infocleta.core.persistencia;
 
 import java.io.Reader;
 

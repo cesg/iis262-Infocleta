@@ -1,4 +1,4 @@
-package cl.ufro.infocleta.core.data;
+package cl.ufro.infocleta.core.persistencia;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cl.ufro.infocleta.beans.Alumno;
-import cl.ufro.infocleta.core.data.mapper.AlumnoMapper;
+import cl.ufro.infocleta.core.persistencia.mapper.AlumnoMapper;
 
 public class DataManager {
     private SqlSession session;
