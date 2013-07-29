@@ -52,7 +52,8 @@ public class ControladorGUIImp implements ControladorGUI {
 	sb.append("Matricula", a.getMatricula());
 	sb.append("Nombre", a.getNombre());
 	LOG.debug("Insertado {}", sb);
-	lista.insertar(a);
+	if(!lista.contiene(a))
+	    lista.insertar(a);
     }
 
     @Override
