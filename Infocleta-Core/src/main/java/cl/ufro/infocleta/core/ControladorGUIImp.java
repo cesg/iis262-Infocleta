@@ -33,7 +33,6 @@ public class ControladorGUIImp implements ControladorGUI {
 	db = new DataManager();
 	lista = new ListaEnlazada();
 	cola = new LinkedList<>();
-	// primer = true;
 	alumnosDB();
     }
 
@@ -108,7 +107,7 @@ public class ControladorGUIImp implements ControladorGUI {
     public void vaciarCola() {
 	LOG.debug("Vaciando cola, elementos {}", cola.size());
 	for (Alumno alumno : cola) {
-	    boolean exists = lista.eliminar(alumno);
+	    boolean exists = borrarAlumno(alumno);
 	    if (exists) {
 		LOG.debug("Alumno eliminado de la lista  id: {}", alumno);
 		cola.remove(alumno);

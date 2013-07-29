@@ -32,6 +32,7 @@ import cl.ufro.infocleta.beans.Alumno;
 import cl.ufro.infocleta.gui.ControladorGUI;
 import cl.ufro.infocleta.gui.UtilidadesGui;
 import java.awt.event.WindowAdapter;
+import java.awt.Font;
 
 public class MainFrame {
     private Image appImage;
@@ -45,15 +46,12 @@ public class MainFrame {
     private static ControladorGUI controlador;
     private static final Logger LOGGER = LoggerFactory
 	    .getLogger(MainFrame.class);
-    private JButton btnDetalle;
     private JInternalFrame internalFrame;
     private JLabel lblNombre;
     private JLabel lblNombreout;
     private JLabel lblMatricula;
     private JLabel lblMatriculaout;
     private JMenuBar menuBar;
-    private JMenu mnAyuda;
-    private JMenuItem mntmAcerca;
     private JMenu mnUtilidades;
     private JMenuItem mntmAgregarCola;
     private JLabel labelVersion;
@@ -174,15 +172,6 @@ public class MainFrame {
 	frmInfocleta.getContentPane().add(btnActualizar);
 	listModel = new DefaultListModel<>();
 	this.list.setModel(listModel);
-	/* btnDetalle */
-	btnDetalle = new JButton("Detalle");
-	btnDetalle.addActionListener(new ActionListener() {
-	    public void actionPerformed(ActionEvent arg0) {
-		btnDetalleActionPerformed(arg0);
-	    }
-	});
-	btnDetalle.setBounds(28, 494, 98, 24);
-	frmInfocleta.getContentPane().add(btnDetalle);
 	/* internalFrame */
 	internalFrame = new JInternalFrame("Detalle");
 	internalFrame.setResizable(true);
@@ -197,6 +186,7 @@ public class MainFrame {
 	internalFrame.getContentPane().add(lblNombre);
 	/* lblNombreout */
 	lblNombreout = new JLabel("");
+	lblNombreout.setFont(new Font("Dialog", Font.BOLD, 14));
 	lblNombreout.setBounds(12, 32, 194, 20);
 	internalFrame.getContentPane().add(lblNombreout);
 	/* lblMatricula */
@@ -205,6 +195,7 @@ public class MainFrame {
 	internalFrame.getContentPane().add(lblMatricula);
 	/* lblMatriculaout */
 	lblMatriculaout = new JLabel("");
+	lblMatriculaout.setFont(new Font("Dialog", Font.BOLD, 14));
 	lblMatriculaout.setBounds(12, 83, 194, 20);
 	internalFrame.getContentPane().add(lblMatriculaout);
 	/* menuBar */
@@ -230,11 +221,6 @@ public class MainFrame {
 	    }
 	});
 	mnUtilidades.add(mntmVaciarCola);
-	mnAyuda = new JMenu("Ayuda");
-	menuBar.add(mnAyuda);
-	/* mntmAcerca */
-	mntmAcerca = new JMenuItem("Acerca");
-	mnAyuda.add(mntmAcerca);
 
 	labelVersion = new JLabel(UtilidadesGui.VERSION);
 	labelVersion.setBounds(554, 528, 55, 14);
@@ -252,13 +238,6 @@ public class MainFrame {
 
     protected void btnAgregarActionPerformed(ActionEvent e) {
 	AgregarFrame.iniciar(controlador, this);
-    }
-
-    protected void btnDetalleActionPerformed(ActionEvent arg0) {
-	Alumno alumno = list.getSelectedValue();
-	if (alumno != null) {
-	    mostrarDetalle(alumno);
-	}
     }
 
     protected void btnActualizarActionPerformed(ActionEvent arg0) {
