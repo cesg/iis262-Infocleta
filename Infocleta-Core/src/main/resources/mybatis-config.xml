@@ -25,7 +25,7 @@
 
 <!-- MAPPERS -->
 	<mappers>
-		<mapper class="cl.ufro.infocleta.core.data.mapper.AlumnoMapper" />
+		<mapper class="cl.ufro.infocleta.core.persistencia.mapper.AlumnoMapper" />
 <!-- 		<mapper resource="AlumnoMapper.xml" /> -->
 	</mappers>
 </configuration>

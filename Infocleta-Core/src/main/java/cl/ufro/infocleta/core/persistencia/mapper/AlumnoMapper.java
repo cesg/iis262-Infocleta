@@ -14,11 +14,11 @@ public interface AlumnoMapper {
     String DELETE = "DELETE FROM alumno where matricula=#{matricula}";
 
     @Select(SELECT_ALL)
-    List<Alumno> getAll() throws Exception;
+    List<Alumno> getAll();
 
     @Insert(INSERT)
-    int insert(Alumno a) throws Exception;
+    int insert(Alumno a);
 
     @Delete(DELETE)
-    int delete(Alumno a) throws Exception;
+    int delete(Alumno a);
 }

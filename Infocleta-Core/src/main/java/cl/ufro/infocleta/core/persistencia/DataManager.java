@@ -27,35 +27,18 @@ public class DataManager {
 
     public List<Alumno> obtenerTodos() {
 	List<Alumno> lista = new ArrayList<>();
-	try {
-	    lista = alumnoMapper.getAll();
-	} catch (Exception e) {
-	    LOG.error("", e);
-	}
-
+	lista = alumnoMapper.getAll();
 	return lista;
     }
 
     public void insertar(Alumno a) {
-	int result = 0;
-	try {
-	    result = alumnoMapper.insert(a);
-	} catch (Exception e) {
-	    LOG.error("", e);
-	}
-	LOG.debug("{}", result);
-	session.commit();
+	if (alumnoMapper.insert(a) > 0)
+	    session.commit();
     }
 
     public void borrar(Alumno a) {
-	int result = 0;
-	try {
-	    result = alumnoMapper.delete(a);
-	} catch (Exception e) {
-	    LOG.error("", e);
-	}
-	LOG.debug("{}",result);
-	session.commit();
+	if (alumnoMapper.delete(a) > 0)
+	    session.commit();
     }
 
     public void cerrarSession() {
