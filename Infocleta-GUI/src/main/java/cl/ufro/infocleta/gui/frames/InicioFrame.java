@@ -49,7 +49,7 @@ public class InicioFrame extends JFrame implements Runnable {
 	setContentPane(contentPane);
 	contentPane.setLayout(null);
 
-	lblV = new JLabel("V1.4");
+	lblV = new JLabel("V1.5");
 	lblV.setBounds(342, 214, 45, 20);
 	contentPane.add(lblV);
 

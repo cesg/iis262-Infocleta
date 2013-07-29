@@ -111,12 +111,12 @@ public class AgregarFrame {
 	String matricual = txtFMatricula.getText();
 	if (this.txtFNombre.isEnabled() && StringUtils.isNotEmpty(nombre)
 	        && StringUtils.isNotEmpty(matricual)) {
-	    Alumno a = new Alumno(nombre, matricual, null, null);
+	    Alumno a = new Alumno(nombre, matricual);
 	    controlador.agregarAlumno(a);
 
 	} else if (!this.txtFNombre.isEnabled()
 	        && StringUtils.isNotEmpty(matricual)) {
-	    Alumno a = new Alumno(null, matricual, null, null);
+	    Alumno a = new Alumno(null, matricual);
 	    controlador.agregarACola(a);
 	}
 	txtFMatricula.setText("");

@@ -140,6 +140,7 @@ public class ControladorGUIImp implements ControladorGUI {
 		    db.insertar(alumno);
 	    }
 	}
-	System.exit(0);
+	db.cerrarSession();
+//	System.exit(0);
     }
 }

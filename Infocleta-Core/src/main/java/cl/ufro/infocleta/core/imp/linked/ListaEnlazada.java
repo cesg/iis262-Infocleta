@@ -8,7 +8,7 @@ import cl.ufro.infocleta.beans.ListaAlumnos;
 /**
  * Lista enlazada de inserción ordenada.
  * 
- * @author c3sg
+ * @author infocleta
  * 
  */
 public class ListaEnlazada implements ListaAlumnos {
@@ -113,7 +113,7 @@ public class ListaEnlazada implements ListaAlumnos {
 	    else if (a.equals(der.value))
 		alumno = der;
 	} else {
-	    Nodo<Alumno> centro = center(izq, der);
+	    Nodo<Alumno> centro = centro(izq, der);
 	    if (centro.value.equals(a))
 		alumno = centro;
 	    else if (a.compareTo(centro.value) < 0)
@@ -252,7 +252,7 @@ public class ListaEnlazada implements ListaAlumnos {
      * @param b
      * @return
      */
-    private Nodo<Alumno> center(Nodo<Alumno> a, Nodo<Alumno> b) {
+    private Nodo<Alumno> centro(Nodo<Alumno> a, Nodo<Alumno> b) {
 	Nodo<Alumno> tempA = a;
 	Nodo<Alumno> tempB = b;
 	if (isForward(a, b)) {

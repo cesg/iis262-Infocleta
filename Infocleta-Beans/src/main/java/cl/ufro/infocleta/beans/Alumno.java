@@ -1,20 +1,18 @@
 package cl.ufro.infocleta.beans;
 
+
 /**
  * <p>
  * Representa un alumno. Implementa <code>java.lang.Comparable </code> para
- * comparar un alumno de otro segun su matricula.
+ * comparar un alumno de otro según su matrícula.
  * </p>
  * 
- * @author c3sg
+ * @author infocleta
  */
 public class Alumno implements Comparable<Alumno> {
 
     private String nombre;
     private String matricula;
-
-    // private String apellidoPaterno;
-    // private String apellidoMaterno;
 
     public Alumno() {
     }
@@ -30,14 +28,6 @@ public class Alumno implements Comparable<Alumno> {
 	this.matricula = matricula;
     }
 
-    public Alumno(String nombre, String matricula, String apellidoMaterno,
-	    String apellidoPaterno) {
-	this.nombre = nombre;
-	this.matricula = matricula;
-	// this.apellidoMaterno = apellidoMaterno;
-	// this.apellidoPaterno = apellidoPaterno;
-    }
-
     public String getNombre() {
 	return nombre;
     }
@@ -46,14 +36,6 @@ public class Alumno implements Comparable<Alumno> {
 	return matricula;
     }
 
-    // public String getApellidoPaterno() {
-    // return apellidoPaterno;
-    // }
-
-    // public String getApellidoMaterno() {
-    // return apellidoMaterno;
-    // }
-
     public void setNombre(String nombre) {
 	this.nombre = nombre;
     }
@@ -61,14 +43,6 @@ public class Alumno implements Comparable<Alumno> {
     public void setMatricula(String matricula) {
 	this.matricula = matricula;
     }
-
-    // public void setApellidoPaterno(String apellidoPaterno) {
-    // this.apellidoPaterno = apellidoPaterno;
-    // }
-
-    // public void setApellidoMaterno(String apellidoMaterno) {
-    // this.apellidoMaterno = apellidoMaterno;
-    // }
 
     @Override
     public int hashCode() {
