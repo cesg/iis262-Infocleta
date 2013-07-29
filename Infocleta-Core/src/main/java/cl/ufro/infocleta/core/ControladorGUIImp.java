@@ -11,8 +11,8 @@ import org.slf4j.LoggerFactory;
 
 import cl.ufro.infocleta.beans.Alumno;
 import cl.ufro.infocleta.beans.ListaAlumnos;
-import cl.ufro.infocleta.core.data.DataManager;
 import cl.ufro.infocleta.core.imp.linked.ListaEnlazada;
+import cl.ufro.infocleta.core.persistencia.DataManager;
 import cl.ufro.infocleta.gui.ControladorGUI;
 
 /**
