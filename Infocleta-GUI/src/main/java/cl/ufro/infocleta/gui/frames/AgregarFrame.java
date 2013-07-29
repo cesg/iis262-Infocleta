@@ -120,7 +120,7 @@ public class AgregarFrame {
 	    controlador.agregarACola(a);
 	}
 	txtFMatricula.setText("");
-	txtFMatricula.setText("");
+	txtFNombre.setText("");
 	if (!chckbxMantener.isSelected())
 	    this.frame.dispose();
     }
